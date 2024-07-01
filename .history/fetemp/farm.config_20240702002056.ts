@@ -2,18 +2,18 @@ import { defineConfig } from '@farmfe/core';
 import vue from '@vitejs/plugin-vue';
 import farmPostcssPlugin from '@farmfe/js-plugin-postcss';
 
-// const pathBase = () => {
-//   if (process.env.NODE_ENV === 'production') {
-//     // 生产环境静态资源路径
-//     return '/';
-//   } else {
-//     // 开发环境静态资源路径
-//     return './src/assets/';
-//   }
-// };
+const pathBase = () => {
+  if (process.env.NODE_ENV === 'production') {
+    // 生产环境静态资源路径
+    return '/';
+  } else {
+    // 开发环境静态资源路径
+    return './src/assets/';
+  }
+};
 
-// const basePath: string = pathBase();
-// console.log('当前路径：', basePath);
+const basePath: string = pathBase();
+console.log('当前路径：', basePath);
 
 export default defineConfig({
   // 配置vite插件

@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import Header from './components/Header/Header.vue'
 </script>
 
 <template>
-  <Header></Header>
   <div>
     <a href="https://farmfe.org/" target="_blank">
       <img src="./assets/logo.png" class="logo" alt="Farm logo" />
@@ -14,7 +12,6 @@ import Header from './components/Header/Header.vue'
     </a>
   </div>
   <HelloWorld msg="Farm + Vue" />
-
 </template>
 
 <style scoped>

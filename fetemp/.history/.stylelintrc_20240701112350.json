@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "syntax": "less",
+  "rules": {
+    "comment-empty-line-before": null,
+    "function-name-case": [
+      "lower",
+      {
+        "ignoreFunctions": [
+          "/colorPalette/"
+        ]
+      }
+    ],
+    "no-invalid-double-slash-comments": null,
+    "no-descending-specificity": null,
+    "declaration-empty-line-before": null,
+    "function-calc-no-invalid": true
+  }
+}

@@ -1,0 +1,27 @@
+# todo
+
+tsconfig.json
+.versionrc.json
+.yarnrc
+*.md
+commitlint.config.js
+sytlelint.config.json
+sytlelintrc.json
+*.log
+*.lock
+commitlint*
+libs/*
+assets/*
+
+refactor/**/*
+
+node_modules/*
+
+dist/**
+
+index.html
+
+.vscode
+.history
+
+*.zip

@@ -1,0 +1,35 @@
+# configure files
+tsconfig.json
+*.md
+sytlelint.config.json
+sytlelintrc.json
+*.log
+*.lock
+libs/*
+assets/*
+
+refactor/**/*
+
+# dependencies
+node_modules/*
+
+# compiled output
+dist/*
+dist-dev
+build/*
+cache
+.cache
+.temp
+.tmp
+
+# lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+index.html
+
+# misc
+.vscode
+.history
+*.zip

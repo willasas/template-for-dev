@@ -12,7 +12,6 @@ import Header from './components/Header/Header.vue'
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
-    <div class="hell">{{ $t('greeting') }}</div>
   </div>
   <HelloWorld msg="Farm + Vue" />
 

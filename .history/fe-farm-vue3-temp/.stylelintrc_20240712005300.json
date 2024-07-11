@@ -532,6 +532,5 @@
     "value-list-max-empty-lines": 0,
     "function-calc-no-invalid": true,
     "value-no-vendor-prefix": true
-  },
-  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.tsx", "**/*.ts"]
+  }
 }

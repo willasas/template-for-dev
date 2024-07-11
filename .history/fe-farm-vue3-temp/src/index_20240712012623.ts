@@ -6,17 +6,6 @@ import { createPinia } from 'pinia';
 import i18n from './i18n/i18n';
 import { useUserStore } from './stores/user';
 import persistedstatePlugin from 'pinia-plugin-persistedstate';
-import { createI18n } from 'vue-i18n';
-
-// 定义i18n
-const i18n = createI18n({
-  legacy: false,
-  locale: 'zh-CN',
-  messages: {
-    'zh-CN': require('./i18n/zh/zh-CN.json'),
-    'en-US': require('./i18n/en/en-US.json'),
-  },
-});
 
 // 使用Pinia插件
 const pinia = createPinia();

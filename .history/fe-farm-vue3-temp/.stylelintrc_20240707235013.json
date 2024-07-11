@@ -1,7 +1,6 @@
 {
   "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-prettier"
+    "stylelint-config-standard"
   ],
   "syntax": "scss",
   "plugins": ["stylelint-order","stylelint-scss"],
@@ -532,6 +531,5 @@
     "value-list-max-empty-lines": 0,
     "function-calc-no-invalid": true,
     "value-no-vendor-prefix": true
-  },
-  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.tsx", "**/*.ts"]
+  }
 }

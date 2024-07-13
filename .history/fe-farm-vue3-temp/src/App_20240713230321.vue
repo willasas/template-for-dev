@@ -14,12 +14,11 @@ import { setupLanguage, setLanguage } from './i18n/index';
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
-    <SelectLang :set-language="setLanguage" />
     <!-- <div class="hell">{{ $t('greeting') }}</div> -->
   </div>
   <HelloWorld msg="Farm + Vue" />
 
-  
+  <SelectLang :set-language="setLanguage" />
 </template>
 
 <style scoped>

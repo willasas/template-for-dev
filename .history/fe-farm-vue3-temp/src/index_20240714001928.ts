@@ -5,7 +5,7 @@ import router from './router'; // 引入路由
 import { createPinia } from 'pinia';
 import { useUserStore } from './stores/user';
 import persistedstatePlugin from 'pinia-plugin-persistedstate';
-import { setupLanguage, setLanguage } from './i18n/index';
+import { setupLanguage } from './i18n/index';
 
 // 使用Pinia插件
 const pinia = createPinia();

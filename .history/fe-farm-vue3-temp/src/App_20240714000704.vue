@@ -2,7 +2,10 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header/Header.vue'
 import SelectLang from './components/SelectLang/SelectLang.vue'
-import { setupLanguage, setLanguage } from './i18n/index';
+import { inject, provide } from 'vue';
+import { setLanguage } from './i18n/index';
+
+provide('setLanguage', setLanguage);
 </script>
 
 <template>
@@ -14,7 +17,7 @@ import { setupLanguage, setLanguage } from './i18n/index';
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
-    <SelectLang :set-language="setLanguage" />
+    <SelectLang v-if="selectLangProvided" :set-language="setLanguage" />
     <!-- <div class="hell">{{ $t('greeting') }}</div> -->
   </div>
   <HelloWorld msg="Farm + Vue" />

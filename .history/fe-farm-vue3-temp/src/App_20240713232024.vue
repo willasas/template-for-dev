@@ -2,7 +2,11 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header/Header.vue'
 import SelectLang from './components/SelectLang/SelectLang.vue'
-import { setupLanguage, setLanguage } from './i18n/index';
+import { inject } from 'vue';
+// import { setLanguage } from './i18n/index';
+
+type SetLanguageType = () => void;
+const setLanguage = inject('setLanguage') as SetLanguageType;
 </script>
 
 <template>

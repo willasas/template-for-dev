@@ -5,7 +5,7 @@ import router from './router'; // 引入路由
 import { createPinia } from 'pinia';
 import { useUserStore } from './stores/user';
 import persistedstatePlugin from 'pinia-plugin-persistedstate';
-import { setupLanguage, setLanguage } from './i18n/index';
+import { setupLanguage } from './i18n/index';
 
 // 使用Pinia插件
 const pinia = createPinia();
@@ -16,8 +16,10 @@ const app = createApp(App);
 // 在Vue应用中注册路由
 app.use(router);
 app.use(pinia);
-setupLanguage(app);
+setupLanguage(app).then(() => {
+  app.mount('#app');
+});
 
 
 // 如果需要的话，可以在这里初始化Pinia的store
-app.mount('#app');
+// app.mount('#app');

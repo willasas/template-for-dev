@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 import { defineComponent, onBeforeMount, onMounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { languages } from './local'; // 假设这里包含了语言列表的数据
@@ -24,8 +24,7 @@ export default defineComponent({
     }
 
     const changeLocale = async (language: typeof languages[number], index: number) => {
-      // selectedLocale.value = { ...language };
-      selectedLocale.value = language;
+      selectedLocale.value = { ...language };
       activeIndex.value = index;
       updateLocaleButton();
       updateActiveClass();
@@ -102,4 +101,57 @@ export default defineComponent({
 
 <style lang="sass" scoped>
 @import "./selectlang.scss"
+</style> -->
+
+<template>
+  <div id="locale" class="bg-color dropdown" data-component="Locale">
+    <a ref="localeMenuButton" id="localeMenuButton" role="menuitem" tabindex="0" aria-haspopup="true" aria-controls="localeMenuList" aria-label="Localization" aria-expanded="false" class="locale-icon focusable text-color-hover" data-component="LocaleIcon" :data-locale="selectedLocale.code" :title="selectedLocale.cnName">
+      <i class="eg-header-icon-locale"></i>
+    </a>
+    <ul id="localeMenuList" class="locale-list bg-color ul-left" role="menu" aria-labelledby="localeMenuButton">
+      <li role="none" class="" v-for="(language, index) in languages" :key="language.code" :data-lang="language.code" :class="{ active: selectedLocale.code === language.code }">
+        <a :href="`/${language.code}/?lang=${language.code}`" role="menuitem" :data-index="index" @click.prevent="changeLocale(language)">
+          <span>{{ language.cnName }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <Message ref="messageComponent" />
+</template>
+
+<script setup lang="ts">
+import Message from '../Message/Message.vue';
+import { languages } from './local';
+import { useLangStore } from '../../stores/index'
+import { computed , getCurrentInstance } from 'vue'
+
+const messageComponent = ref(null);
+const store = useLangStore()
+const { proxy } = getCurrentInstance() as any
+
+// 新增的逻辑
+const selectedLocale = computed(() => {
+  return languages.find(lang => lang.code === store.language) || languages[0];
+});
+
+const changeLocale = (language: typeof languages[number]) => {
+  if (store.language === language.code) return;
+  proxy.$i18n.locale = language.code;
+  store.changeLang(language.code);
+  
+  messageComponent.value.show(`${language.code === 'en' ? '英文' : '中文'}切换成功！`);
+};
+</script>
+
+<style scoped lang="scss">
+.lang-warp{
+  margin: 0 20px;
+}
+</style>
+
+<style scoped lang="scss">
+.lang-warp{
+  margin: 0 20px;
+}
 </style>

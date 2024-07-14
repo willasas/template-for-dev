@@ -1,5 +1,5 @@
 const en = {
-  语言: "language",
+  language: "language",
   英雄: "Hero",
   皮肤: "Skin",
   图集: "Atlas",

@@ -1,9 +1,8 @@
-import { createApp } from 'vue';
-import './style.css';
-import App from './App.vue';
-import router from './router'; // 引入路由
+import { createApp } from 'vue'
+import './base.scss'
+import App from './App.vue'
+
 import { createPinia } from 'pinia';
-import { useUserStore } from './stores/user';
 import persistedstatePlugin from 'pinia-plugin-persistedstate';
 import i18n from './i18n/index';
 import { createI18nInstance } from './i18n/index';
@@ -24,7 +23,3 @@ createI18nInstance().then(i18n => {
   app.use(i18n);
   app.mount('#app');
 });
-
-
-// 如果需要的话，可以在这里初始化Pinia的store
-// app.mount('#app');

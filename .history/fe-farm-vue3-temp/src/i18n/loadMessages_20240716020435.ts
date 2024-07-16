@@ -6,7 +6,7 @@ export async function loadMessages(): Promise<Record<string, any>> {
   for (const { code } of languages) {
     try {
       // 使用动态 import 来按需加载语言文件
-      const langModule = await import(`src/i18n/locales/${code}.ts`);
+      const langModule = await import(`@/i18n/locales/${code}.ts`);
       messages[code] = langModule.default;
     } catch (error) {
       // alert(code)

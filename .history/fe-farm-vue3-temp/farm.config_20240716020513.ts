@@ -48,10 +48,10 @@ export default defineConfig({
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       // 配置解析别名,alias 为前缀替换，对于上述例子 /@/pages 将会被替换为，/root/src/pages
       alias: {
-        // "/@": path.join(process.cwd(), "src"),
-        '@': path.resolve(__dirname, '../src'),
+        "/@": path.join(process.cwd(), "src"),
+        // '@src': path.resolve(__dirname, 'src'),
         // 例如 $__farm_regex:^/(i18n)$，将会匹配 /i18n，并替换为 /root/src/i18n
-        // 'i18n': path.join(process.cwd(), '/src/i18n'),
+        "$__farm_regex:^/(i18n)$": path.join(process.cwd(), "i18n"),
         // stream$: "readable-stream",
       },
     },
@@ -71,11 +71,6 @@ export default defineConfig({
         target: 'https://music-erkelost.vercel.app/banner',
         changeOrigin: true,
         rewrite: (path: any) => path.replace(/^\/api/, ''),
-      },
-      '/i18n': {
-        target: 'localhost:9002',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/i18n/, ''),
       },
     },
   },

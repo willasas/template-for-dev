@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/*!
+  Name: dcsass
+  Author: william
+  Author URI: 
+  Description: base would contain variables, reset, colors etc.
+  Version: 1.0.1
+	Tags: base,front end,variables
+  Update: December 6th,2024
+*/
+
+// @import "./common.scss";
+// @import "./theme-dark.scss";
+// @import "./theme-light.scss";
+// @import "./theme-grey.scss";
+// @import "./theme-red.scss";
+// @import "./theme-orange.scss";
+// @import "./theme-yellow.scss";
+// @import "./theme-green.scss";
+// @import "./theme-indigo.scss";
+// @import "./theme-blue.scss";
+// @import "./theme-purple.scss";
+// @import "./theme-colorful.scss";
+@import "./theme.scss";
+
+@import "./_borders","./_breakpoints","./_customscrollbar","./_effects","./_filters","./_flexgrid","./_function","./_interactivity","./_layout","./_sizing","./_spacing","./_tables","./_transforms","./_transitions","./_typography","./_animation","./_backgrounds","./_mixins";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+#app {
+  max-width: 1880px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}

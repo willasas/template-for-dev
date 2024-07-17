@@ -6,7 +6,7 @@ import SelectLang from './components/SelectLang/SelectLang.vue'
 </script>
 
 <template>
-  <div class="app-main">
+  <div>
     <Header></Header>
     <SelectLang />
     <div class="hell">{{ $t('tabBars.setting') }}</div>

@@ -4,7 +4,7 @@ import './styles/dc.scss';
 import App from './App.vue';
 import router from './router/index'; 
 import { createPinia } from 'pinia';
-import { useLangStore } from './stores/index.ts';
+import { useLangStore } from './stores/index';
 import persistedstatePlugin from 'pinia-plugin-persistedstate';
 import i18n from './i18n/index';
 

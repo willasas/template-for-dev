@@ -57,16 +57,16 @@ export default defineConfig({
   // 使用js插件
   plugins: [
     "@farmfe/plugin-sass",
-    // {
-    //   sourceMap: false, // bool
-    //   sourceMapIncludeSources: true, // bool
-    //   alertAscii: true, // bool
-    //   alertColor: true, // bool
-    //   charset: true, // bool
-    //   quietDeps: true, // bool
-    //   verbose: false, // bool
-    //   style: 'compressed' // output code style
-    // }
+    {
+      sourceMap: false, // bool
+      sourceMapIncludeSources: true, // bool
+      alertAscii: true, // bool
+      alertColor: true, // bool
+      charset: true, // bool
+      quietDeps: true, // bool
+      verbose: false, // bool
+      style: 'compressed' // output code style
+    }
   ],
   
   // 配置入口文件和打包输出文件路径
@@ -96,6 +96,9 @@ export default defineConfig({
       alias: {
         // "/@": path.join(process.cwd(), "src"),
         '@': path.resolve(__dirname, '../src'),
+        // 例如 $__farm_regex:^/(i18n)$，将会匹配 /i18n，并替换为 /root/src/i18n
+        // 'i18n': path.join(process.cwd(), '/src/i18n'),
+        // stream$: "readable-stream",
       },
     },
     css: {

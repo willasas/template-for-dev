@@ -23,10 +23,6 @@ interface FarmCssModulesConfig {
   indentName?: string;
 }
 
-interface FarmCssPrefixer {
-  sourceMAP?: boolean;
-}
-
 // 配置css的兼容性前缀
 interface FarmCssPrefixer {
   targets?: string[] | string | BrowserTargetsRecord;
@@ -55,19 +51,7 @@ export default defineConfig({
   // 配置vite插件
   vitePlugins: [vue()],
   // 使用js插件
-  plugins: [
-    "@farmfe/plugin-sass",
-    // {
-    //   sourceMap: false, // bool
-    //   sourceMapIncludeSources: true, // bool
-    //   alertAscii: true, // bool
-    //   alertColor: true, // bool
-    //   charset: true, // bool
-    //   quietDeps: true, // bool
-    //   verbose: false, // bool
-    //   style: 'compressed' // output code style
-    // }
-  ],
+  plugins: ["@farmfe/plugin-sass", farmPostcssPlugin()],
   
   // 配置入口文件和打包输出文件路径
   compilation: {
@@ -96,6 +80,9 @@ export default defineConfig({
       alias: {
         // "/@": path.join(process.cwd(), "src"),
         '@': path.resolve(__dirname, '../src'),
+        // 例如 $__farm_regex:^/(i18n)$，将会匹配 /i18n，并替换为 /root/src/i18n
+        // 'i18n': path.join(process.cwd(), '/src/i18n'),
+        // stream$: "readable-stream",
       },
     },
     css: {

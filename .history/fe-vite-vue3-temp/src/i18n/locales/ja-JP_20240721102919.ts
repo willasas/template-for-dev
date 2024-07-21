@@ -38,7 +38,7 @@ const ja = {
   youtube: "ユーチューブ",
   google: "ググる",
   googlePlay: "グーグルプレイ",
-  steam: "蒸気",
+  stream: "蒸気",
   epic: "エピック",
   appStore: "アプリストア",
   app: "申し込む",

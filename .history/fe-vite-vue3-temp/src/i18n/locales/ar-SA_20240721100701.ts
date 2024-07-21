@@ -1,4 +1,4 @@
-const ar = {
+const en = {
   language: "اللغة",
   headers: {
     home: "وطن",
@@ -38,11 +38,12 @@ const ar = {
   youtube: "يوتيوب",
   google: "جوجل",
   googlePlay: "جوجل بلاي",
-  steam: "بخار",
+  stream: "استدر",
   epic: "ملحمي",
   appStore: "المتجر",
   app: "التطبيق",
   MiniApp: "برامج مصغرة",
+
   icon: "رمز",
   name: "الإسم",
   type: "نوع",
@@ -51,4 +52,4 @@ const ar = {
   theme: "موضوع",
 };
 
-export default ar;
+export default en;

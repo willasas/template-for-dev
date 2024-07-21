@@ -38,7 +38,7 @@ const de = {
   youtube: "Youtube",
   google: "googeln",
   googlePlay: "Google Spielen",
-  steam: "Dampf",
+  stream: "Bach",
   epic: "episch",
   appStore: "App Store",
   app: "APP",

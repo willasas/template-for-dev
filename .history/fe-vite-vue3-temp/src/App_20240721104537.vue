@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Header from './components/Header/Header.vue'
 import Popup from './components/Popup/Popup.vue';
 import ImageComponent from './components/Imagecontainer/Imagecontainer.vue';
 import SelectLang from './components/SelectLang/SelectLang.vue'
@@ -19,7 +18,6 @@ function showTextPopup() {
 
 <template>
   <div>
-    <Header></Header>
     <SelectLang />
     <div class="hell">{{ $t('setting') }}</div>
     <div class="test">{{ $t('name') }}</div>

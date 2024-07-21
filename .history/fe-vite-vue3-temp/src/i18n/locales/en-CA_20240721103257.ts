@@ -38,7 +38,7 @@ const ca = {
   youtube: "YouTube",
   google: "Google",
   googlePlay: "Google Play",
-  steam: "Steam",
+  stream: "Stream",
   epic: "Epic",
   appStore: "App Store",
   app: "app",

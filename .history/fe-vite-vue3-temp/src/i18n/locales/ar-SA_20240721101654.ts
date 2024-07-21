@@ -38,7 +38,7 @@ const ar = {
   youtube: "يوتيوب",
   google: "جوجل",
   googlePlay: "جوجل بلاي",
-  steam: "بخار",
+  stream: "استدر",
   epic: "ملحمي",
   appStore: "المتجر",
   app: "التطبيق",

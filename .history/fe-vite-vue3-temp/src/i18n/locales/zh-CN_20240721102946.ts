@@ -40,7 +40,7 @@ const zh = {
   youtube: "油管",
   google: "谷歌",
   googlePlay: "谷歌Play",
-  steam: "Stream",
+  stream: "Stream",
   epic: "Epic",
   appStore: "AppStore",
   app: "应用",

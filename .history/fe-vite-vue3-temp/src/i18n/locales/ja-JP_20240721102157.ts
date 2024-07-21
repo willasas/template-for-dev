@@ -1,20 +1,18 @@
-import { isInDestructureAssignment } from "vue/compiler-sfc";
-
-const zh = {
-  language: "语言",
-  headers: {
-    home: "首页",
-    video: "视频",
-    music: "音乐",
-    design: "设计",
-    novel: "小说",
-    caricature: "漫画",
-    pictures: "图片",
-    games: "游戏",
-    software: "软件",
-    aigc: "生成式人工智能",
+const ja = {
+  language: "言語",
+  headers:{
+    home: "ホーム",
+    video: "動画",
+    music: "音楽",
+    design: "デザイン",
+    novel: "小説",
+    caricature: "マンガ",
+    pictures: "画像",
+    games: "ゲーム",
+    software: "ソフトウェア",
+    aigc: " ジェネレーティブAI",
   },
-  setting: "设置",
+  setting: "並べる",
   about: "关于",
   back: "返回",
   next: "下一个",
@@ -40,17 +38,17 @@ const zh = {
   youtube: "油管",
   google: "谷歌",
   googlePlay: "谷歌Play",
-  steam: "Stream",
+  stream: "Stream",
   epic: "Epic",
   appStore: "AppStore",
   app: "应用",
   MiniApp: "小程序",
   icon: "图标",
-  name: "名称",
+  name: "名前",
   type: "类型",
   effect: "效果",
   color: "颜色",
   theme: "主题",
 };
 
-export default zh;
+export default ja;

@@ -1,4 +1,4 @@
-const ca = {
+const en = {
   language: "language",
   headers: {
     home: "Home",
@@ -38,7 +38,7 @@ const ca = {
   youtube: "YouTube",
   google: "Google",
   googlePlay: "Google Play",
-  steam: "Steam",
+  steam: "Stream",
   epic: "Epic",
   appStore: "App Store",
   app: "app",
@@ -51,4 +51,4 @@ const ca = {
   theme: "Theme",
 };
 
-export default ca;
+export default en;

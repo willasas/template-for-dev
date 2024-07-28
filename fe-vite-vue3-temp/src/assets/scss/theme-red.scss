@@ -1,7 +1,13 @@
 /* 红色主题 */
 [data-theme=red-theme]{
-    --color-primary-border: #fa0000;
-    --color-primary: #fa0000;
-    --color-primary-font: #fa0000;
-    --color-primary-bg: #fa0000;
+    --red-50: rgb(254, 242, 242); 
+    --red-100: rgb(254, 226, 226); 
+    --red-200: rgb(254, 202, 202); 
+    --red-300: rgb(252, 165, 165); 
+    --red-400: rgb(248, 113, 113);
+    --red-500: rgb(239, 68, 68);
+    --red-600: rgb(220, 38, 38); 
+    --red-700: rgb(185, 28, 28); 
+    --red-800: rgb(153, 27, 27); 
+    --red-900: rgb(127, 29, 29); 
 }

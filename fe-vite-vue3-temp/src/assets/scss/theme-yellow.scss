@@ -1,7 +1,13 @@
 // 黄色主题
 [data-theme=yellow-theme]{
-    --color-primary-border: #faf600;
-    --color-primary: #faf600;
-    --color-primary-font: #faf600;
-    --color-primary-bg: #faf600;
+    --yellow-50: rgb(254, 252, 232);
+    --yellow-100: rgb(254, 249, 195);
+    --yellow-200: rgb(254, 240, 138);
+    --yellow-300: rgb(253, 224, 71); 
+    --yellow-400: rgb(250, 204, 21); 
+    --yellow-500: rgb(234, 179, 8); 
+    --yellow-600: rgb(202, 138, 4); 
+    --yellow-700: rgb(161, 98, 7); 
+    --yellow-800: rgb(133, 77, 14); 
+    --yellow-900: rgb(113, 63, 18); 
 }

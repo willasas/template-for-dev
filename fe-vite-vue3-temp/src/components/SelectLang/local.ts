@@ -117,7 +117,7 @@ export const languages: Language[] = [
   // {"enName": "", "cnName": "哈萨克语(哈萨克斯坦)", "code": "kk-KZ", "description": "Kazakh (Kazakhstan)", "added": "2005-10-16", "customSpeechSupport": "Plain text", "Scope": ""},
   // {"enName": "", "cnName": "高棉语(柬埔寨)", "code": "km-KH", "description": "Khmer (Cambodia)", "added": "2005-10-16", "customSpeechSupport": "Plain text", "Scope": ""},
   // {"enName": "", "cnName": "卡纳达语(印度)", "code": "kn-IN", "description": "Kannada (India)", "added": "2005-10-16", "customSpeechSupport": "Plain text", "Scope": ""},
-  // {"enName": "", "cnName": "韩语(韩国)", "code": "ko-KR", "description": "Korean (Korea)", "added": "2005-10-16", "customSpeechSupport": "Audio + human-labeled transcript,Plain text,Structured text,Phrase list", "Scope": ""},
+  {"enName": "", "cnName": "韩语(韩国)", "code": "ko-KR", "description": "Korean (Korea)", "added": "2005-10-16", "customSpeechSupport": "Audio + human-labeled transcript,Plain text,Structured text,Phrase list", "Scope": ""},
 
   // {"enName": "", "cnName": "老挝(老挝)", "code": "lo-LA", "description": "Lao (Laos)", "added": "2005-10-16", "customSpeechSupport": "Plain text", "Scope": ""},
   // {"enName": "", "cnName": "立陶宛语(立陶宛)", "code": "lt-LT", "description": "Lithuanian (Lithuania)", "added": "2005-10-16", "customSpeechSupport": "Plain text,Pronunciation", "Scope": ""},

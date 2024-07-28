@@ -1,5 +1,3 @@
-import { isInDestructureAssignment } from "vue/compiler-sfc";
-
 const zh = {
   language: "语言",
   headers: {

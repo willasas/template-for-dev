@@ -1,14 +1,23 @@
 <template>
   <transition name="fade">
     <div
-      v-if="isVisible"
-      ref="popupRef"
-      class="text-popup"
-      @click.stop="handleClickInside"
+      v-if="props.modelValue"
+      ref="dialogRef"
+      class="my-dialog"
+      @click.self="handleClickOutside"
     >
-      <button class="popup-close" @click="hide">Close</button>
-      <div class="popup-content">
-        <slot></slot> <!-- 这里可以插入任何传入的内容 -->
+      <div class="dialog-header">
+        <span class="dialog-title">{{ title }}</span>
+        <button class="dialog-close" @click="close">Close</button>
+      </div>
+      <div class="dialog-body">
+        <slot></slot>
+      </div>
+      <div class="dialog-footer">
+        <slot name="footer">
+          <button @click="close">Cancel</button>
+          <button type="primary" @click="confirm">Confirm</button>
+        </slot>
       </div>
     </div>
   </transition>
@@ -18,74 +27,81 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { defineExpose } from 'vue';
 
-const name = 'Popup';
-const isVisible = ref(false);
-const popupRef = ref(null);
-
-function show() {
-  isVisible.value = true;
-}
-
-function hide() {
-  isVisible.value = false;
-}
-
-function handleClickInside(event) {
-  event.stopPropagation();
-}
-
-// 监听外部点击关闭弹窗
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside);
+const props = withDefaults(defineProps<{
+  modelValue: boolean;
+  title?: string;
+}>(), {
+  modelValue: false,
+  title: '',
 });
 
-onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside);
-});
+const emit = defineEmits(['update:modelValue', 'confirm']);
 
-function handleClickOutside(event) {
-  if (!popupRef.value?.contains(event.target)) {
-    hide();
-    console.log('click outside');
+const dialogRef = ref<HTMLDivElement | null>(null);
+
+function close() {
+  emit('update:modelValue', false);
+}
+
+function confirm() {
+  emit('confirm');
+  close();
+}
+
+function handleClickOutside() {
+  if (dialogRef.value && !dialogRef.value.contains(event.target as Node)) {
+    close();
   }
 }
-
-defineExpose({ name });
-
 </script>
 
 <style scoped>
-.text-popup {
+.my-dialog {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 999;
   background-color: white;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  /* display: none; */
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-.text-popup.fade-enter-active,
-.text-popup.fade-leave-active {
-  transition: opacity 0.3s ease;
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.text-popup.fade-enter,
-.text-popup.fade-leave-to {
-  opacity: 0;
+.dialog-title {
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.popup-close {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.dialog-close {
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
-.popup-content {
-  /* 根据需要调整内容样式 */
+.dialog-body {
+  margin-bottom: 10px;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

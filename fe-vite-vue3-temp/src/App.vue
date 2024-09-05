@@ -7,15 +7,15 @@ import VirtualList from './components/VirtualRander/VirtualList.vue';
 import SelectLang from './components/SelectLang/SelectLang.vue'
 import { ref } from 'vue';
 
-let showTextPopupFlag = ref(false);
+// popup func
+let dialogVisible = ref(false);
+function openDialog() {
+  dialogVisible.value = true;
+}
 
-// function showTextPopup() {
-//   showTextPopupFlag.value = true;
-//   console.log('showTextPopupFlag', showTextPopupFlag.value);
-// }
-
-function showTextPopup() {
-  showTextPopupFlag.value = true;
+function confirmDialog() {
+  console.log('Dialog confirmed!');
+  dialogVisible.value = false;
 }
 
 // VirtualList data

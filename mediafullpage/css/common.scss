@@ -1,0 +1,830 @@
+/* ==============VARIABLES START============== */
+$fonts: font;
+$color: #fff !default;
+$ui-pc-width: 1920 !default;
+$ui-n-width: 1224 !default;
+$ui-m-width: 750 !default;
+$design-width: 2560;
+$design-height: 1440;
+$webkit: -webkit- !default;
+$moz: -moz- !default;
+$ms: -ms- !default;
+$o: -o- !default;
+$top: 0;
+$right: 0;
+$bottom: 0;
+$left: 0;
+$width: auto !default;
+$height: auto !default;
+$primary-color: #ecad29;
+$text-color: #FFFFFFDD;
+// $local-path: '../ossweb-img/';
+$local-path: '//game.gtimg.cn/images/act/cp/anm20240928/';
+// $server-path: '';
+
+:root{
+  --black: #000;
+  --white: #fff;
+  --light-background-color: var(--white);
+  --dark-background-color: var(--black);
+  --light-origin: #ff6702;
+  --light-yellow: #ffd902;
+}
+/* ==============VARIABLES END============== */
+
+/* ==============FUNCTION END============== */
+@function rem($pixels) {
+  $design_font_size: 100;
+  @return ($pixels / $design_font_size) + rem;
+}
+
+@function vw($pixels) {
+  @return $pixels / $design-width * 100vw;
+}
+
+@function vh($pixels) {
+  @return $pixels / $design-height * 100vh;
+}
+
+/* ==============FUNCTION END============== */
+
+
+/* ==============MIXIN START============== */
+///
+/// 通用文本混合
+/// @param {String} $font-fm 字体
+/// @param {Number} $font-size 字体大小
+/// @param {String} $font-weight 字体粗细
+/// @param {String} $font-style 字体风格
+/// @param {String|Number} $line-height 行高
+/// @param {Color} $color 字体颜色
+/// @param {String} $text-align 文本对齐方式
+/// @param {String|Number} $letter-spacing 字母间距
+/// @param {String} $text-dec 文本修饰
+///
+@mixin usual-fonts($font-fm: "Microsoft YaHei", $font-size: 18px, $font-weight: bold, $font-style: normal, $line-height: 18px, $color: #ccc, $text-align: center, $letter-spacing: normal, $text-dec: none) {
+  #{$fonts}: {
+    family: $font-fm;
+    size: $font-size;
+    weight: $font-weight;
+    style: $font-style;
+  }
+
+  line-height: $line-height;
+  color: $color;
+  text-align: $text-align;
+  letter-spacing: $letter-spacing;
+  -webkit-text-decoration: $text-dec;
+     -moz-text-decoration: $text-dec;
+          text-decoration: $text-dec;
+}
+
+///
+/// 通用缩写文本混合
+/// @param {String} $font-style 字体风格
+/// @param {String} $font-weight 字体粗细
+/// @param {Number} $font-size 字体大小
+/// @param {String|Number} $line-height 行高
+/// @param {String} $font-family 字体
+/// @param {Color} $color 字体颜色
+/// @param {String} $text-align 文本对齐方式
+/// @param {String|Number} $letter-spacing 字母间距
+/// @param {String} $text-dec 文本修饰
+///
+@mixin usual-text($font-style: normal, $font-weight: bold, $font-size: 18px, $line-height: 18px, $font-family: "Microsoft YaHei", $color: #ccc, $text-align: center, $letter-spacing: normal, $text-dec: none) {
+  font: #{$font-style} #{$font-weight} #{$font-size} / #{$line-height} #{$font-family};
+  color: $color;
+  text-align: $text-align;
+  letter-spacing: $letter-spacing;
+  -webkit-text-decoration: $text-dec;
+     -moz-text-decoration: $text-dec;
+          text-decoration: $text-dec;
+}
+
+///
+/// 元素大小混合
+/// @param {String|Number} $width 宽度
+/// @param {String|Number} $height 高度
+///
+@mixin element-size($width: auto, $height: auto) {
+  width: $width;
+  height: $height;
+}
+
+///
+/// flex布局混合
+/// @param {String} $flex 生成的框的类型
+/// @param {String} $allocate-space 水平对齐弹性容器的项目
+/// @param {String} $align-items 为弹性容器内的项目指定默认对齐方式
+/// @param {String} $flex-wrap 弹性项目是否应换行
+/// @param {String} $flex-dir 弹性项目的方向
+/// @param {String} $align-content 弹性容器内的各项没有占用交叉轴上所有可用的空间时对齐容器内的各项（垂直）
+///
+@mixin layout-flex($flex: flex, $allocate-space: space-between, $align-items: center, $flex-wrap: nowrap, $flex-dir: row, $align-content: stretch) {
+  display: $flex;
+  -webkit-box-pack: $allocate-space;
+  -webkit-justify-content: $allocate-space;
+      -ms-flex-pack: $allocate-space;
+          justify-content: $allocate-space;
+  -webkit-box-align: $align-items;
+  -webkit-align-items: $align-items;
+      -ms-flex-align: $align-items;
+          align-items: $align-items;
+  -webkit-flex-wrap: $flex-wrap;
+      -ms-flex-wrap: $flex-wrap;
+          flex-wrap: $flex-wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: $flex-dir;
+      -ms-flex-direction: $flex-dir;
+          flex-direction: $flex-dir;
+  -webkit-align-content: $align-content;
+      -ms-flex-line-pack: $align-content;
+      align-content: $align-content;
+}
+
+///
+/// grid布局混合
+/// @param {Number} $columns 列数，默认为1列。
+/// @param {Number} $rows 行数，默认为null，表示不固定行数。
+/// @param {Number} $gap 网格间距，默认为10px。
+/// @param {Boolean} $auto-flow-columns 是否开启自动填充列默认为false。
+/// 
+@mixin layout-grid($columns: 1, $rows: null, $gap: 10px, $auto-flow-columns: false) {
+  display: grid;
+  grid-gap: $gap;
+
+  // 当未指定行数或者指定为单行时，只设置列数
+  @if not $rows or $rows == 1 {
+    grid-template-columns: repeat(#{$columns}, 1fr);
+  } 
+  // 指定了多行时，设置列数和行数，并启用行密集自动布局
+  @else {
+    grid-template-columns: repeat(#{$columns}, 1fr);
+    grid-template-rows: repeat(#{$rows}, auto);
+    grid-auto-flow: row dense; // 根据需要可以设置为column dense
+  }
+
+  // 如果需要自动填充列，则设置为列密集自动布局
+  @if $auto-flow-columns {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+  }
+}
+
+///
+/// 相对/绝对定位混合
+/// @param {String} $position 元素的定位类型
+/// @param {String} $top 距离顶部的距离
+/// @param {String} $right 距离右侧的距离
+/// @param {String} $bottom 距离底部的距离
+/// @param {String} $left 距离左侧的距离
+/// @param {String} $transform 向元素应该 2D 还是 3D 转换
+///
+@mixin layout-pos($position: absolute, $top: auto, $right: auto, $bottom: auto, $left: auto, $transform: none) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  -webkit-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
+}
+
+///
+/// 显示或隐藏某个元素
+/// @param {Booleans} $dom-object 元素变量(你可以设置它为true或false，并对其进行其他操作)
+///
+@mixin show-or-hide($dom-object: true) {
+  @if($dom-object==true) {
+    display: block;
+  } @else {
+    display: none;
+  }
+}
+
+///
+/// 文本溢出处理
+/// @param {Number} $txtType 文本超出的处理方式（可选值为0：单行文本超出省略；1：超出换行,字符超出位置使用连字符；2：多行文本超出省略）
+///
+@mixin txt-overflow($txt-type: 0) {
+  @if($txt-type==0) {
+    // 单行文本超出省略
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+  }
+
+  @else if ($txt-type==1) {
+    //超出换行,字符超出位置使用连字符
+    overflow-wrap: break-word;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+         hyphens: auto;
+  }
+
+  @else if ($txt-type==2) {
+    // 多行文本超出省略
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    display: -webkit-box;
+    #{$webkit}line-clamp: 2;
+    #{$webkit}box-orient: vertical;
+  }
+}
+
+///
+/// 背景混合器
+/// @param {String} $bg-img 图片路径
+/// @param {String} $bg-repeat 图片是否重复(repeat、repeat-x、repeat-y、no-repeat、inherit)
+/// @param {String|Number} $bg-size 图片的尺寸(cover、contain、percentage、length)
+/// @param {Number} $width 图片的长度
+/// @param {Number} $height 图片的高度
+/// @param {List} $bg-position 设置背景图像的起始位置
+/// @param {String} $bg-origin 规定 background-position 属性相对于什么位置来定位
+/// @param {String} $bg-clip 背景的绘制区域
+/// @param {String} $bg-attachment 背景图像是否固定或者随着页面的其余部分滚??
+/// @param {Color} $color 背景色
+///
+@mixin element-bg-img($bg-img, $bg-repeat: no-repeat, $bg-size: cover, $width: auto, $height: auto, $bg-position: top center, $bg-origin: initial, $bg-clip:initial, $bg-attachment:initial, $color:#000) {
+  @include element-size($width, $height);
+  background-image: url(#{$bg-img});
+  background-repeat: $bg-repeat;
+  background-size: $bg-size;
+  background-position: $bg-position;
+  background-origin: $bg-origin;
+  background-clip: $bg-clip;
+  -webkit-background-clip: $bg-clip;
+  background-attachment: $bg-attachment;
+  background-color: $color;
+}
+
+///
+/// 背景属性缩写混合器
+/// @param {Color} $color 背景色
+/// @param {String} $bg-img 图片路径
+/// @param {List} $bg-position 设置背景图像的起始位置
+/// @param {String|Number} $bg-size 图片的尺寸(cover、contain、percentage、length)
+/// @param {String} $bg-repeat 图片是否重复(repeat、repeat-x、repeat-y、no-repeat、inherit)
+/// @param {String} $bg-origin 规定 background-position 属性相对于什么位置来定位
+/// @param {String} $bg-clip 背景的绘制区域
+/// @param {String} $bg-attachment 背景图像是否固定或者随着页面的其余部分滚??
+/// @param {Number} $width 图片的长度
+/// @param {Number} $height 图片的高度
+///
+@mixin element-bgImg($color:#000, $bg-img: '', $bg-position: top center, $bg-size: cover, $bg-repeat: no-repeat, $bg-origin: initial, $bg-clip:initial, $bg-attachment:initial, $width: auto, $height: auto) {
+  background: #{$color} url(#{$bg-img}) #{$bg-position}/#{$bg-size} #{$bg-repeat};
+  background-origin: $bg-origin;
+  background-clip: $bg-clip;
+  background-attachment: $bg-attachment;
+  width: $width;
+  height: $height;
+}
+
+///
+/// 图片混合器
+/// @param {String} $bg-img 图片路径
+/// @param {String} $bg-repeat 图片是否重复(repeat、repeat-x、repeat-y、no-repeat、inherit)
+/// @param {String|Number} $bg-size 图片的尺寸(cover、contain、percentage、length)
+/// @param {Number} $width 图片的长度
+/// @param {Number} $height 图片的高度
+///
+@mixin element-img($bg-img, $bg-repeat: no-repeat, $bg-size: cover, $width: auto, $height: auto) {
+  background-image: url(#{$bg-img});
+  background-repeat: $bg-repeat;
+  background-size: $bg-size;
+  @include element-size($width, $height);
+}
+
+///
+/// 背景渐变混合器
+/// @param {Number} $width 背景的长度
+/// @param {Number} $height 背景的高度
+/// @param {Color} $color-before 前一个渐变颜色
+/// @param {Color} $color-after 后一个渐变颜色
+///
+@mixin bg-gradient($width: 10px, $height: 10px, $color-before: #dfb778, $color-after: #dfb778) {
+  @include element-size($width, $height);
+  background: -o-linear-gradient(right, $color-before, $color-after);
+  background: -o-linear-gradient(left, $color-before, $color-after);
+  background: -webkit-gradient(linear, left top, right top, from($color-before), to($color-after));
+  background: linear-gradient(to right, $color-before, $color-after);
+}
+
+///
+/// 文字渐变混合器
+/// @param {Number} $font-size 文字大小
+/// @param {String} $direction 渐变方向
+/// @param {Color} $start-color 渐变起始颜色
+/// @param {Color} $end-color 渐变结束颜色
+///
+@mixin gradient-text($font-size, $direction, $start-color, $end-color) {
+  font-size: $font-size;
+  background: linear-gradient($direction, $start-color, $end-color);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+///
+/// 设置所有外边距属性混合器
+/// @param {String|Number} $margin-top 设置元素的上外边距
+/// @param {String|Number} $margin-right 设置元素的右外边距
+/// @param {String|Number} $margin-bottom 设置元素的下外边距
+/// @param {String|Number} $margin-left 设置元素的左外边距
+///
+@mixin element-center($margin-top: auto,$margin-right: auto,$margin-bottom: auto,$margin-left: auto){
+  margin-top: $margin-top;
+  margin-right: $margin-right;
+  margin-bottom: $margin-bottom;
+  margin-left: $margin-left;
+}
+/* ==============MIXIN END============== */
+
+/* ==============PLACEHOLDER START============== */
+///
+/// 选择占位符（注意：@extend 无法在媒体查询中使用！
+/// 若要使用则复制到@media里面,若要在多个媒体查询中使用，
+/// 则需要使用不同的名称，如在pc的媒体查询中名为%bg-gradient，则在移动端的媒体查询中为%bg-gradient1，编译时才不会报错
+/// 使用方法：@extend %bg-gradient;
+///
+/// 背景渐变
+/// 
+%bg-gradient {
+  @include bg-gradient(auto, 12px, #dfb778, #dfb778);
+}
+
+///
+/// 文字渐变
+/// 
+%text-gradient-right {
+  @include gradient-text(72px, to right, blue, red);
+}
+
+///
+/// 文字发光效果
+///
+%text-shadow{
+  text-shadow: 1px 1px 3px rgba(85, 34, 68, .4), -1px -1px 3px rgba(85, 34, 68, .4), 1px -1px 3px rgba(85, 34, 68, .4), -1px 1px 3px rgba(85, 34, 68, .4);
+}
+
+///
+/// 内容/元素居中对齐
+/// 
+%element-center {
+  margin: 0 auto;
+}
+
+///
+/// 文字样式
+///
+%ele-text{
+  @include usual-fonts("sy-bold", rem(34), bold, normal, 1.22, #000000, center, normal, none);
+}
+
+///
+/// 简写文字样式
+///
+%ele-text2{
+  @include usual-text(bold, normal, 34px, 1.22, "sy-bold", #000000, center, normal, none);
+}
+
+///
+/// 绝对定位元素居中
+/// 
+%ele-pos{
+  @include layout-pos(absolute, 50%, auto, auto, 50%, translate(-50%, -50%));
+}
+
+///
+/// 元素大小
+/// 
+%ele-size{
+  @include element-size(rem(368), rem(86));
+}
+
+///
+/// 页面背景
+///
+%ele-bg{
+  @include element-bg-img($local-path+'bg_01.jpg', no-repeat, cover, 100%, rem(1080), top center, initial, initial, initial, transparent);
+}
+
+///
+/// 页面背景缩写
+/// 
+%ele-bg1{
+  @include element-bgImg(transparent, $local-path+'bg_01.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100%, 1080px);
+}
+
+///
+/// 元素图片
+///
+%ele-img{
+  @include element-img($local-path+'kv-logo.png', no-repeat, 100% 100%, rem(180), rem(74));
+}
+
+///
+/// 元素居中flex
+/// 
+%flex-center{
+  @include layout-flex(flex, center, center);
+}
+
+///
+/// 元素两端对齐且垂直居中(flex)
+/// 
+%flex-between{
+  @include layout-flex(flex, space-between, center);
+}
+
+///
+/// 同一行元素左对齐且垂直居中(flex)
+/// 
+%flex-first-center{
+  @include layout-flex(flex, flex-start, center);
+}
+
+///
+/// 同一行元素右对齐且垂直居中(flex)
+/// 
+%flex-first-center{
+  @include layout-flex(flex, flex-end, center);
+}
+
+///
+/// 创建一个3列2行的网格容器，间距为20px
+///
+%grid-create {
+  @include layout-grid(3, 2, 20px);
+}
+/* ==============PLACEHOLDER END============== */
+
+/* ==============BASE STYLE START============== */
+///
+/// 自定义滚动条样式(横向滚动)
+/// 
+.scroll-x {
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  /* Firefox滚动条样式 */
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+
+  &::-webkit-scrollbar {
+    width: 10px; /* 设置滚动条的宽度 */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* 设置滚动条滑块的颜色 */
+    border-radius: 0;
+    /* 鼠标悬停时改变颜色 */
+    transition: background-color 0.3s ease;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时颜色加深 */
+  }
+
+  /* 定义滚动条轨道 */
+  &::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* 设置滚动条轨道背景色 */
+    border-radius: 5px; /* 可以添加圆角 */
+  }
+}
+
+///
+/// 自定义滚动条样式(纵向滚动)
+/// 
+.scroll-y {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
+  &::-webkit-scrollbar {
+    width: rem(4);
+    border-radius: 0;
+    background: #2b3846;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: rem(4);
+    height: 1px;
+    border-radius: 0;
+    background: linear-gradient(to right, #e6deb3, #e6deb3);
+  }
+
+  &::-webkit-scrollbar-thumb:disabled {
+    background: #000;
+  }
+
+  &::-webkit-scrollbar-track{
+    border-radius: 0;
+    background: #000;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Inter:400|Jura:400");
+
+// 思源宋体简体
+@font-face {
+  font-family: "sy-r";
+  src: url($local-path+"/fonts/sy-r.eot");
+  src: url($local-path+"/fonts/sy-r.eot?#iefix") format("embedded-opentype"),
+  url($local-path+"/fonts/sy-r.woff") format("woff"),
+  url($local-path+"/fonts/sy-r.ttf") format("truetype"),
+  url($local-path+"/fonts/sy-r.svg#sy-r") format("svg");
+  font-style: normal;
+  font-weight: normal;
+}
+
+// 思源宋体中等
+@font-face {
+  font-family: "sy-m";
+  src: url($local-path+"/fonts/sy-m.eot");
+  src: url($local-path+"/fonts/sy-m.eot?#iefix") format("embedded-opentype"),
+  url($local-path+"/fonts/sy-m.woff") format("woff"),
+  url($local-path+"/fonts/sy-m.ttf") format("truetype"),
+  url($local-path+"/fonts/sy-m.svg#sy-m") format("svg");
+  font-style: normal;
+  font-weight: normal;
+}
+
+// 思源宋体加粗
+@font-face {
+  font-family: "sy-sbold";
+  src: url($local-path+"/fonts/sy-sbold.eot");
+  src: url($local-path+"/fonts/sy-sbold.eot?#iefix") format("embedded-opentype"),
+  url($local-path+"/fonts/sy-sbold.woff") format("woff"),
+  url($local-path+"/fonts/sy-sbold.ttf") format("truetype"),
+  url($local-path+"/fonts/sy-sbold.svg#sy-sbold") format("svg");
+  font-style: normal;
+  font-weight: normal;
+}
+
+// 思源宋体 中
+// @font-face {
+//   font-family: "sys";
+//   src: url($local-path+"sys-m.eot");
+//   src: url($local-path+"sys-m.eot?#iefix") format("embedded-opentype"),
+//   url($local-path+"sys-m.woff") format("woff"),
+//   url($local-path+"sys-m.ttf") format("truetype"),
+//   url($local-path+"sys-m.svg#sys-m") format("svg");
+//   font-style: normal;
+//   font-weight: normal;
+// }
+
+// LOL售卖字体
+@font-face{
+  font-family: 'sellnum-1';
+  src:url(//game.gtimg.cn/images/lol/common/sell/font/sellnum-1.eot);
+  src:url(//game.gtimg.cn/images/lol/common/sell/font/sellnum-1.woff) format("woff"),url(//game.gtimg.cn/images/lol/common/sell/font/sellnum-1.ttf) format("truetype"),url(//game.gtimg.cn/images/lol/common/sell/font/sellnum-1.svg) format("svg")
+}
+
+@supports (-webkit-background-clip:text){
+  // 但皮肤价格渐变
+  .text-color1{
+    @include gradient-text(rem(114), to top, #adfeff, #eeffff);
+  }
+
+  .text-color2{
+    @include gradient-text(rem(114), to top, #fc578c, #ffa2e4);
+  }
+
+  .text-color3{
+    @include gradient-text(rem(114), to top, #3c89e6, #1c5598);
+  }
+
+  .text-color4{
+    @include gradient-text(rem(114), to top, #fffac2, #fbffff);
+  }
+
+  // 完全体右侧价格渐变
+  .text-color{
+    @include gradient-text(rem(80), to bottom, #dbad7f, #967257);
+  }
+}
+
+
+/* ==============BASE STYLE END============== */
+
+/* ==============ANIMATION START============== */
+@keyframes ani-scale {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.1)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+@keyframes rotates{
+  0%{
+    transform:rotate( 0deg)
+  }
+  100%{
+    transform:rotate( 360deg)
+  }
+}
+
+@keyframes translateY {
+  0%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50%{
+    transform: translateY(rem(10));
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes translateY2 {
+  0%{
+    transform: translate(-50%,0);
+    opacity: 1;
+  }
+  50%{
+    transform: translate(-50%,rem(10));
+    opacity: 1;
+  }
+  100%{
+    transform: translate(-50%,0);
+    opacity: 1;
+  }
+}
+
+@keyframes translateX {
+  0%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50%{
+    transform: translateX(rem(10));
+    opacity: 1;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0%{
+    transform: translateY(-10);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// 鼠标滚动动画
+@keyframes scrolldown-anim {
+  0% {
+    opacity: 0;
+    height: 6px;
+  }
+  40% {
+    opacity: 1;
+    height: 10px;
+  }
+  80% {
+    transform: translate(0, 20px);
+    height: 10px;
+    opacity: 0;
+  }
+  100% {
+    height: 3px;
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+/* ==============ANIMATION END============== */
+
+// pc
+@media screen and (min-width: 1025px) {
+  body,div,p,ul,li,table,tbody,tr,td,textarea,form,input,h1,h2,h3,h4,h5,dl,dt,dd,img,iframe,header,nav,section,article,footer,figure,figcaption,menu{margin:0;padding:0;list-style:none}
+  body{-webkit-text-size-adjust:none;font-size:0.24rem;padding-top:0;background-color:#000}
+  body.light{
+    color: var(--white);
+    background-color: var(--white);
+  }
+  header,nav,section,article,footer,figure,figcaption{display:block}
+  h1,h2,h3,h4,h5,h6,th{font-weight:normal;font-size:100%}
+  ol,ul{margin:0;padding:0}
+  fieldset{border:none;margin:0;padding:0}
+  a,li,ul,[onclick]{-webkit-tap-highlight-color:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+  table{border-collapse:collapse;border-spacing:0}
+  em,strong{font-weight:normal;font-style:normal}
+  a{text-decoration:none}
+  a:hover{filter:brightness(1);-webkit-filter:brightness(1)}
+
+  .hide{display:block;width:0;height:0;overflow:hidden}
+  :focus{outline:none}
+  .c:before,.c:after{content:"";display:table}
+  .c:after{clear:both}
+  .floatl{float:left;margin-top: 0.4rem;}
+  .floatr{float:right}
+  .pr{position:relative}
+  .pa{position:absolute}
+  .db{display:block;text-indent:-9999em}
+  .pf{position:fixed}
+  input,textarea,section{border-radius:0;outline:none}
+  body,button,input,select,textarea {
+    font: 0.12rem/1.5 tahoma,sans-serif;
+  }
+  html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+  .hide, .hid{text-indent:-99.99rem;font-size:0rem;overflow:hidden;width:0rem;height:0rem;opacity:0}
+  .wrapper *, .wrapper *::after, .wrapper *::before{outline:none;background-repeat:no-repeat;background-position:center top;font-style:normal;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+  
+  #afooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0.3rem 0;
+    text-align:center;
+    font-size:0.14rem;
+    line-height:0.2rem;
+    background-color:#000;
+    color:#c0c0c0;
+
+    a{
+      color:#c0c0c0;
+      text-decoration:none;
+
+      &:hover{
+        color:#c0c0c0;
+        text-decoration:none;
+      }
+    }
+  }
+}
+
+// mobile
+@media screen and (max-width: 1024px) {
+  body,div,p,ul,li,table,tbody,tr,td,textarea,form,input,h1,h2,h3,h4,h5,dl,dt,dd,img,iframe,header,nav,section,article,footer,figure,figcaption,menu{margin:0;padding:0;list-style:none}
+  body{-webkit-text-size-adjust:none; font-size:0.24rem;background-color:#000}
+  header,nav,section,article,footer,figure,figcaption{display:block}
+  h1,h2,h3,h4,h5,h6,th{font-weight:normal;font-size:100%}
+  ol,ul{margin:0;padding:0}
+  fieldset{border:none;margin:0;padding:0}
+  a,li,ul,[onclick]{-webkit-tap-highlight-color:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+  table{border-collapse:collapse;border-spacing:0}
+  em,strong{font-weight:normal;font-style:normal}
+  a{text-decoration:none}
+
+  .hide{display:block;width:0;height:0;overflow:hidden}
+  :focus{outline:none}
+  .c:before,.c:after{content:"";display:table}
+  .c:after{clear:both}
+  .fl{float:left}
+  .fr{float:right}
+  .pr{position:relative}
+  .pa{position:absolute}
+  .db{display:block;text-indent:-9999em}
+  .pf{position:fixed}
+  .hide, .hid{text-indent:-99.99rem;font-size:0rem;overflow:hidden;width:0rem;height:0rem;opacity:0}
+  input,textarea,section{border-radius:0;outline:none}
+  body,html{width:100%;-webkit-user-select:none;user-select:none;-webkit-text-size-adjust:none;font-variant-numeric:tabular-nums;font-feature-settings:"tnum";overflow-x:hidden}
+  html{-webkit-text-size-adjust:100%}
+  i{font-style:normal}
+
+  #afooter{
+    padding:0.3rem 0;
+    text-align:center;
+    font-size:0.12rem;
+    line-height:0.3rem;
+    background-color:#000;
+    color:#c0c0c0;
+
+    a{
+      color:#c0c0c0;
+      text-decoration:none;
+
+      &:hover{
+        color:#c0c0c0;
+        text-decoration:none;
+      }
+    }
+  }
+}

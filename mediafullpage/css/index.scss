@@ -1,0 +1,1704 @@
+@import './common.scss';
+
+.wrap{
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  // header menu
+  .header-container{
+    // opacity: 0;
+    @include layout-pos(fixed, 0, auto, auto, 50%, translateX(-50%));
+    z-index: 999;
+    @include layout-flex(flex, space-between, center, nowrap, row);
+    @include element-size(100%, rem(120));
+    background-color: rgba(24, 24, 24, 0.72);
+    box-sizing: border-box;
+    padding: 0 rem(50);
+
+    .logo-box{
+      position: relative;
+      z-index: 11;
+      @include layout-flex(flex, center, center, nowrap, row);
+
+      .header-logo{
+        display: block;
+        position: relative;
+      }
+
+      .logo1{
+        @include element-img($local-path+'logo1.png', no-repeat, 100% 100%, rem(167), rem(61));
+        background-color: rgba(189, 34, 34, 0.72);
+      }
+
+      .logo2{
+        margin-left: rem(22);
+        @include element-img($local-path+'logo2.png', no-repeat, 100% 100%, rem(62), rem(60));
+        background-color: rgba(13, 161, 105, 0.72);
+      }
+    }
+
+    .nav-list{
+      position: relative;
+      z-index: 11;
+      margin-left: 16.5%;
+      min-width: rem(1020);
+      height: 100%;
+      @include layout-flex(flex, center, center);
+
+      .nav-item{
+        @include layout-flex(flex, center, center);
+        position: relative;
+        // width: rem(120);
+        height: 100%;
+
+        &.active,&:hover{
+          background: rgba(0, 0, 0, 0.5);
+          
+          .txt{
+            // text-decoration: underline;
+            color: #a0986d;
+
+            &::after {
+              content: "";
+              display: block;
+            }
+          }
+        }
+
+        .txt{
+          display: block;
+          position: relative;
+          @include usual-text(normal, normal, rem(22), rem(120), "sy-m", #d7d7d7, center, normal, none);
+          
+          &::after {
+            content: "";
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: rem(34);
+            width: 100%;
+            height: 1px;
+            background-color: #a0986d;
+          }
+        }
+
+        .nav-icon{
+          display: block;
+          margin-left: rem(8);
+          margin-bottom: rem(5);
+          vertical-align: middle;
+          @include element-img($local-path+'header-nav-icon.png', no-repeat, 100% 100%, rem(25), rem(22));
+          background-color: rgba(201, 9, 9, 0.5);
+        }
+      }
+    }
+
+    .nav-sub-list{
+      @include layout-pos(fixed, 0, auto, auto, 0, none);
+      z-index: 10;
+      @include element-size(100%, auto);
+      min-height: rem(400);
+      display: none;
+      background-color: #000;
+      box-sizing: border-box;
+      padding: rem(120) rem(600);
+
+      &.show{
+        display: block;
+        animation: fadeIn .3s;
+      }
+
+      .nav-sub-list-inner{
+        margin: 0 auto;
+        @include element-size(100%, auto);
+        @include layout-flex(flex, space-evenly, center);
+
+        .nav-sub-item {
+          width: rem(120);
+          height: auto;
+          
+          .nav-sub-item-link {
+            @include layout-flex(flex, center, center);
+            width: 100%;
+            margin-bottom: rem(10);
+            
+            .txt{
+              display: block;
+              position: relative;
+              @include usual-text(normal, normal, rem(16), rem(22), "sy-m", #d7d7d7, center, normal, none);
+            }
+    
+            .sub-nav-icon{
+              display: block;
+              margin-right: rem(8);
+              @include element-img($local-path+'header-nav-icon.png', no-repeat, 100% 100%, rem(16), rem(16));
+              background-color: rgba(201, 9, 9, 0.5);
+            }
+            
+            &.active {
+              .txt{
+                color: #3f61ff;
+              }
+      
+              .sub-nav-icon{
+                background-color: rgba(9, 201, 35, 0.5);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .rg-info{
+      position: relative;
+      z-index: 11;
+      width: 100%;
+      @include layout-flex(flex, flex-end, center, nowrap, row);
+
+      .search{
+        @include element-size(auto, 100%);
+        margin-right: rem(20);
+        
+        input{
+          border: none;
+          padding: rem(14);
+          border-radius: rem(26);
+          background-color: rgba($color: #000, $alpha: .9);
+          @include usual-text(normal, normal, rem(16), rem(22), "sy-m", #fff, left, normal, none);
+        }
+      }
+      
+      .login-container{
+        position: relative;
+        overflow: hidden;
+        @include usual-text(normal, normal, rem(22), rem(36), "sy-m", #fff, center, normal, none);
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        @include layout-flex(flex, center, center);
+        
+        a{
+          display: block;
+          @include usual-text(normal, normal, rem(22), rem(36), "sy-m", #fff, center, normal, none);
+          padding: 6px 16px;
+          border-radius: 48px;
+          min-width: 64px;
+          box-shadow:inset 2px 2px 2px 0px rgba(33,255,255,.5),
+            2px 2px 10px 0px rgba(0,0,0,.1),
+            2px 2px 10px 0px rgba(0,0,0,.1);
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          -webkit-transition: all .3s;
+          transition: all .3s;
+          
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      
+        .register-text{
+          margin-left: rem(16);
+        }
+      }
+
+      .theme-switch{
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--white);
+        margin-left: 10px;
+        text-align: center;
+        opacity: .8;
+        z-index: 33;
+        transition: all 300ms linear;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.switched{
+          .icon-dark{
+            display: block;
+          }
+
+          .icon-light{
+            display: none;
+          }
+        }
+        
+        .icon{
+          display: block;
+          width: 16px;
+          height: 16px;
+        }
+        
+        .icon-dark{
+          display: none;
+          
+          path{
+            fill: var(--black);
+          }
+        }
+
+        .icon-light{
+          display: block;
+          
+          path{
+            fill: var(--light-yellow);
+            // opacity: .8;
+          }
+        }
+      }
+    }
+  }
+  
+  // 去除fullpage水印
+  .fp-watermark{
+    display: none;
+  }
+
+  // 右侧悬浮菜单
+  .left-float{
+    // opacity: 0;
+    @include layout-pos(fixed, auto, auto, rem(221), 0, none);
+    z-index: 999;
+    @include element-img($local-path+'left-float-bg.png', no-repeat, 100% 100%, rem(254), rem(494));
+    box-sizing: border-box;
+    padding: rem(266) rem(80) rem(74) rem(30);
+
+    .left-float-img{
+      margin: 0 auto;
+      @include element-size(rem(120), rem(120));
+
+      img{
+        margin: 0 auto;
+        display: block;
+        @include element-size(100%, 100%);
+        object-fit: cover;
+      }
+    }
+
+    .left-float-name{
+      margin: rem(14) auto 0;
+      @include usual-text(normal, normal, rem(20), rem(22), "sy-m", #cbbf7f, center, normal, none);
+    }
+
+    .left-float-text{
+      display: block;
+      margin: rem(-200) auto 0;
+      position: relative;
+      @include usual-text(normal, normal, rem(20), rem(36), "sy-m", #cbbf7f, center, normal, none);
+      @include element-img($local-path+'left-float-text-bg.png', no-repeat, 100% 100%, rem(142), rem(36));
+    }
+  }
+
+  // 向下滚动提示
+  .scrolldown{
+    @include layout-pos(fixed, auto, auto, rem(52), 50%, translateX(-50%));
+    z-index: 999;
+    --color: white;
+    --sizeX: 30px;
+    --sizeY: 50px;
+    // position: relative;
+    width: var(--sizeX);
+    height: var(--sizeY);
+    margin-left: var(sizeX / 2);
+    border: calc(var(--sizeX) / 10) solid var(--color);
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      margin-left: -3px;
+      background-color: var(--color);
+      border-radius: 100%;
+      animation: scrolldown-anim 2s infinite;
+      box-sizing: border-box;
+      box-shadow: 0px -5px 3px 1px #ffffff66;
+    }
+
+    .chevrons {
+      padding: 6px 0 0 0;
+      margin-left: -3px;
+      margin-top: 48px;
+      width: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .chevrondown {
+      margin-top: -6px;
+      position: relative;
+      border: solid var(--color);
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+
+      &:nth-child(odd) {
+        animation: pulse 500ms ease infinite alternate;
+      }
+      
+      &:nth-child(even) {
+        animation: pulse 500ms ease infinite alternate 250ms;
+      }
+    }
+  }
+
+  // main content
+  .main-content{
+    position: relative;
+    @include element-size(100vw, 100vh);
+
+    .section{
+      
+    }
+  }
+
+  // screen home
+  .sec1{
+    @include element-bgImg(transparent, $local-path+'bg1.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100vw, 100vh);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    justify-content: flex-end;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-image: linear-gradient(128deg, #40afff, #3f61ff);
+
+    .sec-cont1{
+      // position: relative;
+      @include layout-pos(absolute, 0, auto, auto, 0, none);
+      z-index: 1;
+      @include element-size(100%, 100%);
+      
+      .card {
+        // @include layout-pos(absolute, 0, auto, auto, 0, none);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        @include element-size(100%, 100%);
+        background-size: cover;
+        box-shadow: 6px 6px 10px 2px rgba(0, 0, 0, 0.6);
+      }
+      
+      #btn {
+        position: absolute;
+        top: 690px;
+        left: 16px;
+        z-index: 99;
+      }
+      
+      .card-content {
+        @include layout-pos(absolute, 0, auto, auto, 0, none);
+        z-index: 2;
+        color: $text-color;
+        padding-left: 16px;
+      }
+      
+      .content-place {
+        margin-top: 6px;
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .content-place {
+        font-weight: 500;
+      }
+      
+      .content-title-1,
+      .content-title-2 {
+        font-weight: 600;
+        font-size: 20px;
+        font-family: "Oswald", sans-serif;
+      }
+      
+      .content-start {
+        width: 30px;
+        height: 5px;
+        border-radius: 99px;
+        background-color: $text-color;
+      }
+    }
+
+    .details {
+      z-index: 22;
+      position: absolute;
+      top: 240px;
+      left: 60px;
+    
+      .place-box {
+        height: 46px;
+    
+        overflow: hidden;
+        .text {
+          padding-top: 16px;
+          font-size: 20px;
+    
+          &:before {
+            top: 0;
+            left: 0;
+            position: absolute;
+            content: "";
+            width: 30px;
+            height: 4px;
+            border-radius: 99px;
+            background-color: white;
+          }
+        }
+      }
+    
+      .title-1,
+      .title-2 {
+        font-weight: 600;
+        font-size: 72px;
+        font-family: "Oswald", sans-serif;
+      }
+      .title-box-1,
+      .title-box-2 {
+        margin-top: 2px;
+        height: 100px;
+        overflow: hidden;
+        // background-color: blue;
+      }
+      > .desc {
+        margin-top: 16px;
+        width: 500px;
+      }
+      > .cta {
+        width: 500px;
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        > .bookmark {
+          border: none;
+          background-color: $primary-color;
+          width: 36px;
+          height: 36px;
+          border-radius: 99px;
+          color: white;
+          display: grid;
+          place-items: center;
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        > .discover {
+          border: 1px solid #ffffff;
+          background-color: transparent;
+          height: 36px;
+          border-radius: 99px;
+          color: #ffffff;
+          padding: 4px 24px;
+          font-size: 12px;
+          margin-left: 16px;
+          text-transform: uppercase;
+        }
+      }
+    }
+    
+    .indicator {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 5px;
+      z-index: 60;
+      background-color: $primary-color;
+    }
+    
+    .pagination {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      display: inline-flex;
+    
+      > .arrow {
+        z-index: 60;
+        width: 50px;
+        height: 50px;
+        border-radius: 999px;
+        border: 2px solid #ffffff55;
+        display: grid;
+        place-items: center;
+        &:nth-child(2){
+          margin-left: 20px;
+        }
+        svg {
+          width: 24px;
+          height: 24px;
+          stroke-width: 2;
+          color: #ffffff99;
+        }
+      }
+    
+      .progress-sub-container{
+        margin-left: 24px;
+        z-index: 60;
+        width: 500px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        .progress-sub-background{
+          width: 500px;
+          height: 3px;
+          background-color: #ffffff33;
+          .progress-sub-foreground{
+          height: 3px;
+          background-color: $primary-color;
+          }
+        }
+      }
+    
+      .slide-numbers{
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        // background-color: #111111;
+        z-index: 60;
+        position: relative;
+      
+        .item{
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          // background: rgb(31, 31, 41);
+          color: white;
+          top: 0;
+          left: 0;
+          display: grid;
+          place-items: center;
+          font-size: 32px;
+          font-weight: bold;
+        }
+      }
+    }
+    
+    .cover{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #fff;
+      z-index: 100;
+    }
+  }
+
+  .sec2{
+    // @include element-bgImg(transparent, $local-path+'bg1.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100vw, 100vh);
+    @include element-size(100vw, 100vh);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    background-image: linear-gradient(128deg, #ff9a3f, #ff4b40);
+
+    .slide {
+      h1{
+        font-size: 2.65em;
+        transform: scale(.8);
+        position: relative;
+        opacity: 0;
+        transition: all 600ms ease;
+        transition-delay: 700ms;
+
+        &.active {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      
+      p{
+        width: 50%;
+        margin: 0.5em auto;
+        font-size: 1.65em;
+        // transform: translate3d(0, 50px, 0);
+        opacity: 0;
+        transition: all 700ms ease;
+        transform: translate3d(0, 0, 0);
+        transition-delay: 700ms;
+
+        &.active {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+      }
+    }
+    
+  }
+  
+  .sec3{
+    @include element-bgImg(transparent, $local-path+'bg2.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100vw, 100vh);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    box-sizing: border-box;
+    padding-top: rem(172);
+    background-image: linear-gradient(128deg, #fc40ff, #543fff);
+  }
+
+  .sec4{
+    @include element-bgImg(transparent, $local-path+'bg3.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100vw, 100vh);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    box-sizing: border-box;
+    padding-top: rem(205);
+    background-image: linear-gradient(128deg, #ff4040, #ff9a3f);
+  }
+
+  .sec5{
+    @include element-bgImg(transparent, $local-path+'bg2.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100vw, 100vh);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    box-sizing: border-box;
+    padding-top: rem(243);
+    background-image: linear-gradient(128deg, #40afff, #3f61ff);
+  }
+
+  .sec6{
+    @include element-bgImg(transparent, $local-path+'bg2.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100vw, 100vh);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    box-sizing: border-box;
+    padding-top: rem(225);
+    background-image: linear-gradient(128deg, #ff9a3f, #ff4b40);
+  }
+
+  .sec7{
+    @include element-bgImg(transparent, $local-path+'bg2.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100vw, 100vh);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    box-sizing: border-box;
+    padding-top: rem(340);
+    background-image: linear-gradient(128deg, #40afff, #3f61ff);
+
+    .overlay-video {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 100% 100%;
+      background-color: black; /* in case the video doesn't fit the whole page*/
+      background-image: linear-gradient(128deg, #36cc57, #dae723);/* our video */ 
+      background-position: center center;
+      background-size: cover;
+      object-fit: cover; /*cover video background */
+      z-index: -100;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    /* Layer with position absolute in order to have it over the video */
+    .layer {
+      position: relative;
+      z-index: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+
+      h1{
+        font-size: rem(60);
+        color: #fff;
+        text-align: center;
+      }
+    }
+  }
+  
+  .sec8{
+    @include element-bgImg(transparent, $local-path+'bg2.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100vw, 100vh);
+    // @include element-size(100%, auto);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    // height: auto !important;
+    background-image: linear-gradient(128deg, #36cc57, #dae723);
+
+    .overlay-video {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 100% 100%;
+      background-color: black; /* in case the video doesn't fit the whole page*/
+      background-image: linear-gradient(128deg, #36cc57, #dae723);/* our video */ 
+      background-position: center center;
+      background-size: cover;
+      object-fit: cover; /*cover video background */
+      z-index: -100;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    /* Layer with position absolute in order to have it over the video */
+    .layer {
+      position: relative;
+      z-index: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+
+      h1{
+        font-size: rem(60);
+        color: #fff;
+        text-align: center;
+      }
+    }
+  }
+
+  .sec9{
+    @include element-size(100%, auto);
+    position: relative;
+    overflow: hidden;
+    z-index: 6;
+    background-image: linear-gradient(128deg, #1c1d1c, #868686);
+    
+    .footer{
+      height: 30vh;
+      padding-top: 5vh;
+
+      h1{
+        font-size: rem(40);
+        line-height: 1.1;
+        text-align: center;
+      }
+      
+      p{
+        font-size: rem(20);
+        line-height: 1.1;
+        text-align: center;
+      }
+    }
+  }
+  
+  // 设置懒加载的背景图
+  .load-background {
+    background-image: url(https://images.unsplash.com/photo-1500042600524-37ecb686c775?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3);
+    background-size: cover;
+  }
+}
+
+// 分享保存截图
+// 渲染结构样式
+.screenshots-html{
+  // @include layout-pos(absolute, 0, auto, auto, 0, none);
+  // transform: scale(.5);
+  // transform-origin: top left;
+
+  @include layout-pos(absolute, 0, auto, auto, -1000px, none);
+  margin: 0 auto;
+  @include element-img($local-path+'dia-share-bg.png', no-repeat, cover, 649px, 1068px);
+  z-index: 99;
+
+  .screenshots-content{
+    position: relative;
+    margin: 0 auto;
+    @include element-size(100%, auto);
+
+    .screen-share-title {
+      margin: 220px auto 0;
+      font-size: 0;
+      @include element-img($local-path+'dia-share-title1.png', no-repeat, cover, 552px, 103px);
+      // @include usual-text(normal, italic, 41px, 1.1, "sy-sbold", #bbb186, center, normal, none);
+    
+      .anm-name {
+        // color: #d36014;
+      }
+
+      .anm-help{
+        color: #d36014;
+      }
+    }
+
+    .screen-info-box {
+      position: relative;
+      margin: 17px auto 0;
+      @include element-size(100%, auto);
+      height: 586px;
+      @include layout-flex(flex, flex-start, flex-start);
+      
+      .lf-info {
+        width: 411px;
+        height: 586px;
+        
+        img{
+          display: block;
+          width: 411px;
+          height: 586px;
+          background-size: 100% 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .rg-info {
+        position: relative;
+        width: 280px;
+        box-sizing: border-box;
+        padding-top: 76px;
+        margin-left: -58px;
+        
+        .anm-name{
+          width: 100%;
+          height: 77px;
+          @include usual-text(normal, italic, 44px, 77px, "sy-sbold", #d1b673, center, normal, none);
+          text-shadow: 2px 2px 0 #200e0b, -2px -2px 0 #200e0b, -2px 2px 0 #200e0b, 2px -2px 0 #200e0b;
+        }
+        
+        .anm-skill-name {
+          margin: 17px auto 0;
+          // @include usual-text(normal, normal, 17px, 30px, "sy-sbold", #d1b673, center, normal, none);
+          font-size: 0;
+          // text-shadow: 2px 2px 0 black, -2px -2px 0 black, -2px 2px 0 black, 2px -2px 0 black;
+
+          &.skill-name1{
+            margin: 60px auto 0;
+            @include element-img($local-path+'dia-role-skill1-1.png', no-repeat, cover, 195px, 49px);
+          }
+
+          &.skill-name2{
+            margin: 12px auto 0;
+            @include element-img($local-path+'dia-role-skill1-2.png', no-repeat, cover, 195px, 49px);
+          }
+
+          &.skill-name3{
+            margin: 12px auto 0;
+            @include element-img($local-path+'dia-role-skill1-3.png', no-repeat, cover, 195px, 49px);
+          }
+        }
+        
+        .anm-desc {
+          margin: 18px auto 0;
+          width: 174px;
+          @include usual-text(normal, normal, 18px, 28px, "sy-sbold", #867855, left, normal, none);
+        }
+      }
+    }
+  }
+}
+
+// popup
+.dialog {
+  outline: none;
+
+  .dia-con {
+    position: relative;
+
+    .dia-box {
+      margin: 0 auto;
+      @include element-size(100%, 100%);
+    }
+  }
+
+  .dia-close {
+    display: block;
+    @include layout-pos(absolute, 0, rem(-56), auto, auto, none);
+    @include element-img($local-path+'dia-close.png', no-repeat, 100% 100%, rem(49), rem(53));    
+  }
+
+  // 视频弹窗
+  .dia-bg1 {
+    margin: 0 auto;
+    @include element-size(rem(996), rem(560));
+    border: rem(2) solid #957d48;
+
+    .dia-box {
+      .vd-cont {
+        display: block;
+        margin: 0 auto;
+        @include element-size(rem(992), rem(556));
+        padding-top: rem(2);
+      }
+    }
+  }
+
+  // 分享截图展示
+  .dialog-share {
+    @include layout-flex(flex, center, center, wrap, column);
+
+    .share-screenshots-image {
+      display: block;
+      @include element-size(rem(649), rem(1068));
+      object-fit: cover;
+    }
+
+    .share-btn-box{
+      position: relative;
+      @include layout-flex(flex, space-between, center);
+      margin: rem(-153) auto 0 rem(147);
+      @include element-size(rem(448), rem(94));
+
+      .screen-share{
+        display: block;
+        @include element-img($local-path+'dia-share-btn.png', no-repeat, 100% 100%, rem(353), rem(94));
+        
+        span{
+          display: block;
+          @include usual-text(normal, normal, rem(30), rem(94), "sy-m", #ceba9b, center, normal, none);
+        }
+      }
+
+      .screen-download{
+        display: block;
+        @include element-img($local-path+'dia-download.png', no-repeat, 100% 100%, rem(35), rem(42));
+      }
+    }
+  }
+
+  // 选择心愿安尼姆
+  .dia-bg2{
+    @include element-img($local-path+'dia-bg1.png', no-repeat, 100% 100%, rem(798), rem(588));
+    box-sizing: border-box;
+    padding: rem(37) rem(70);
+    
+    .dia-title1 {
+      margin: 0 auto;
+      @include element-img($local-path+'dia-title1.png', no-repeat, 100% 100%, rem(275), rem(96));
+    }
+    
+    .dia-sub-tit1 {
+      margin: rem(30) auto rem(18);
+      @include usual-text(normal, italic, rem(23), 1.1, "sy-sbold", #a8a075, center, rem(2), none);
+    }
+
+    .dia-role-container {
+      position: relative;
+      margin: 0 auto;
+      @include element-size(rem(656), auto);
+      // box-sizing: border-box;
+      // padding: rem(4) rem(22) rem(26) rem(29);
+
+      .dia-role-inner{
+        position: relative;
+        margin: 0 auto;
+        // @include element-size(rem(598), rem(280));
+        @include element-size(100%, auto);
+      }
+
+      .dia-role-list {
+        position: relative;
+        // margin: 0 auto;
+        @include element-img($local-path+'dia-role-bg1.png', no-repeat, 100% 100%, rem(656), rem(195));
+        // @include layout-flex(flex, flex-start, flex-start, wrap, row);
+        @include layout-flex(flex, center, center);
+        
+        .dia-role-item {
+          @include element-img($local-path+'dia-role-it-bg.png', no-repeat, 100% 100%, rem(94), rem(94));
+          // margin-bottom: rem(17);
+          box-sizing: border-box;
+          padding: rem(3);
+
+          &:not(:nth-child(4n)){
+            margin-right: rem(26);
+          }
+
+          &.active{
+            @include element-img($local-path+'dia-role-it-bg-on.png', no-repeat, 100% 100%, rem(94), rem(94));
+          }
+
+          img{
+            display: block;
+            @include element-size(100%, 100%);
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .submit-role-btn{
+        display: block;
+        margin: rem(40) auto 0;
+        @include element-img($local-path+'dia-see-again.png', no-repeat, 100% 100%, rem(304), rem(80));
+        
+        span{
+          display: block;
+          // padding-left: rem(20);
+          @include usual-text(normal, normal, rem(26), rem(68), "sy-m", #a0986d, center, normal, none);
+        }
+      }
+    }
+  }
+
+  // 绑定手机号
+  .dia-bg3{
+    @include element-img($local-path+'dia-bg2.png', no-repeat, 100% 100%, rem(798), rem(588));
+    box-sizing: border-box;
+    padding: rem(52) rem(86) rem(20);
+
+    .dia-title2 {
+      margin: 0 auto;
+      @include element-img($local-path+'dia-title2.png', no-repeat, 100% 100%, rem(196), rem(50));
+    }
+    
+    .bind-form {
+      margin: rem(20) auto 0;
+      position: relative;
+      @include element-size(rem(626), auto);
+      
+      .phone-num {
+        @include usual-text(normal, normal, rem(20), rem(46), "sy-sbold", rgba(168, 160, 117,.5), left, normal, none);
+        @include element-size(rem(626), rem(46));
+        box-sizing: border-box;
+        padding: rem(0) rem(32);
+        outline: none;
+        border: none;
+        background-color: #130d09;
+
+        &::placeholder {
+          color: rgba(168, 160, 117,.5);
+          font-size: rem(20);
+        }
+
+        &::-webkit-input-placeholder {
+          color: rgba(168, 160, 117,.5);
+          font-size: rem(20);
+        }
+        
+        &:-ms-input-placeholder {
+          color: rgba(168, 160, 117,.5);
+          font-size: rem(20);
+        }
+        
+        &::placeholder {
+          color: rgba(168, 160, 117,.5);
+          font-size: rem(20);
+        }
+      }
+      
+      .verification-box {
+        margin: rem(9) auto 0;
+        @include element-size(100%, rem(46));
+        @include layout-flex(flex, space-between, center);
+        
+        .phone-code-num {
+          @include usual-text(normal, normal, rem(20), rem(46), "sy-sbold", rgba(168, 160, 117,.5), left, normal, none);
+          @include element-size(rem(380), rem(46));
+          box-sizing: border-box;
+          padding: rem(0) rem(32);
+          outline: none;
+          border: none;
+          background-color: #130d09;
+
+          &::placeholder {
+            color: rgba(168, 160, 117,.5);
+            font-size: rem(20);
+          }
+  
+          &::-webkit-input-placeholder {
+            color: rgba(168, 160, 117,.5);
+            font-size: rem(20);
+          }
+          
+          &:-ms-input-placeholder {
+            color: rgba(168, 160, 117,.5);
+            font-size: rem(20);
+          }
+          
+          &::placeholder {
+            color: rgba(168, 160, 117,.5);
+            font-size: rem(20);
+          }
+        }
+        
+        .get-code {
+          display: block;
+          @include element-img($local-path+'dia-btn-getcode.png', no-repeat, 100% 100%, rem(186), rem(44));
+      
+          span{
+            display: block;
+            @include usual-text(normal, normal, rem(16), rem(44), "sy-m", #c9bb72, center, normal, none);
+          }
+
+          &.on{
+            @include element-img($local-path+'dia-btn-getcode-on.png', no-repeat, 100% 100%, rem(186), rem(44));
+      
+            span{
+              color: #fff;
+            }
+          }
+        }
+      }
+      
+      .bind-user-agreement {
+        margin: rem(22) auto 0;
+        width: 100%;
+        @include layout-flex(flex, center, center);
+
+        .user-agreement-checkbox {
+          @include element-size(rem(20), rem(20));
+          border: 1px solid #6d644b;
+          padding: 0;
+          margin: 0;
+        }
+
+        label{
+          display: block;
+          margin-left: rem(16);
+          @include usual-text(normal, normal, rem(19), 1.1, "sy-sbold", #a8a075, left, normal, none);
+        }
+      }
+      
+      .user-agreement-desc {
+        width: 100%;
+        margin: rem(24) auto 0;
+
+        .user-agreement-text {
+          @include usual-text(normal, normal, rem(18), 1.2, "sy-sbold", rgba(168, 160, 117, .5), left, rem(-2), none);
+          
+          &:not(:last-child){
+            margin-bottom: rem(10);
+          }
+        }
+      }
+    }
+
+    .submit-phone-num {
+      display: block;
+      margin: rem(24) auto 0;
+      @include element-img($local-path+'dia-see-again.png', no-repeat, 100% 100%, rem(304), rem(79));
+      
+      span{
+        display: block;
+        @include usual-text(normal, normal, rem(26), rem(68), "sy-sbold", #a0986d, center, normal, none);
+      }
+    }
+  }
+
+  // 预约里程碑活动规则
+  .dia-bg4{
+    @include element-img($local-path+'dia-bg2.png', no-repeat, 100% 100%, rem(798), rem(588));
+    box-sizing: border-box;
+    padding: rem(66) rem(70);
+
+    .dia-title3{
+      margin: 0 auto;
+      @include element-img($local-path+'dia-title5.png', no-repeat, 100% 100%, rem(278), rem(50));
+    }
+    
+    .rules-inner {
+      margin: rem(50) auto 0;
+      @include element-size(100%, rem(360));
+      position: relative;
+    }
+
+    .rules-list {
+      @include element-size(100%, rem(360));
+      position: relative;
+      // box-sizing: border-box;
+      // padding-right: rem(10);
+
+      .rules-items {
+        width: 100%;
+        margin-bottom: rem(22);
+      }
+      
+      .sub-title-text {
+        @include usual-text(normal, normal, rem(24), 1.1, "sy-sbold", #a8a075, left, normal, none);
+      }
+      
+      .tips-text {
+        margin-top: rem(10);
+        @include usual-text(normal, normal, rem(20), rem(24), "sy-sbold", rgba(168, 160, 117,.5), left, normal, none);
+      }
+      
+      .r-icon {
+        display: inline-block;
+        @include element-size(rem(8), rem(8));
+        border-radius: 50%;
+        background-color: #a8a075;
+        margin-right: rem(6);
+        vertical-align: middle;
+      }
+    }
+  }
+
+  // 预招募规则
+  .dia-bg12 {
+    
+    .dia-box {
+    }
+    .dia-title7 {
+      margin: 0 auto;
+      @include element-img($local-path+'dia-title7.png', no-repeat, 100% 100%, rem(278), rem(50));
+    }
+    .prop-gl-list {
+      margin: rem(20) auto 0;
+      @include element-size(100%, auto);
+    }
+    .prop-gl-item {
+      @include element-size(100%, rem(60));
+      @include layout-flex(flex, space-between, center);
+      // border: 1px solid #6d644b;
+      @include usual-text(normal, normal, rem(22), rem(60), "sy-sbold", #a0986d, center, normal, none);
+    }
+    
+    .prop-gl-title {
+      border: 1px solid #6d644b;
+      @include element-size(33%, rem(60));
+      @include usual-text(normal, normal, rem(22), rem(60), "sy-sbold", #a0986d, center, normal, none);
+    }
+  }
+
+  // 抽奖池规则
+  .dia-bg13 {
+    .dia-box {
+    }
+    .dia-title8 {
+      margin: 0 auto;
+      @include element-img($local-path+'dia-title8.png', no-repeat, 100% 100%, rem(204), rem(50));
+    }
+    .prop-gl-list {
+      margin: rem(20) auto 0;
+      @include element-size(100%, auto);
+    }
+    .prop-gl-item {
+      @include element-size(100%, rem(60));
+      @include layout-flex(flex, space-between, center);
+      // border: 1px solid #6d644b;
+      @include usual-text(normal, normal, rem(22), rem(60), "sy-sbold", #a0986d, center, normal, none);
+    }
+    
+    .prop-gl-title {
+      border: 1px solid #6d644b;
+      @include element-size(33%, rem(60));
+      @include usual-text(normal, normal, rem(22), rem(60), "sy-sbold", #a0986d, center, normal, none);
+    }
+  }
+
+  
+
+  // 选择心愿安尼姆二级确认
+  .dia-bg5 {
+    @include element-img($local-path+'dia-bg3.png', no-repeat, 100% 100%, rem(792), rem(905));
+    box-sizing: border-box;
+    padding: rem(66) 0;
+    
+    .dia-title4 {
+      margin: 0 auto;
+      @include element-img($local-path+'dia-title3.png', no-repeat, 100% 100%, rem(535), rem(95));
+    }
+    
+    .role-sure-info {
+      margin: rem(-20) auto 0;
+      @include element-size(100%, rem(586));
+      @include layout-flex(flex, flex-start, flex-start);
+      
+      .lf-info {
+        position: relative;
+        margin-left: rem(56);
+        z-index: 4;
+        @include element-size(rem(411), rem(586));
+
+        img{
+          display: block;
+          @include element-size(100%, 100%);
+          object-fit: cover;
+        }
+      }
+      
+      .rg-info {
+        margin-top: rem(85);
+        @include element-img($local-path+'dia-rolesure-rg-info-bg.png', no-repeat, 100% 100%, rem(297), rem(480));
+        position: relative;
+        box-sizing: border-box;
+        padding-top: rem(24);
+        margin-left: rem(-58);
+        
+        .anm-name{
+          width: 100%;
+          height: rem(77);
+          @include usual-text(normal, italic, rem(44), rem(77), "sy-sbold", #d1b673, center, normal, none);
+          text-shadow: rem(2) rem(2) 0 black, rem(-2) rem(-2) 0 black, rem(2) rem(-2) 0 black, rem(-2) rem(2) 0 black;
+        }
+
+        .skill-box {
+          position: relative;
+          margin: 0 auto;
+          @include element-size(100%, rem(49));
+          
+          &.sk-box1 {
+            &:hover{
+              .skill-name1-desc {
+                display: block;
+              }
+            }
+          }
+
+          &.sk-box2 {
+            &:hover{
+              .skill-name2-desc {
+                display: block;
+              }
+            }
+          }
+
+          &.sk-box3 {
+            &:hover{
+              .skill-name3-desc {
+                display: block;
+              }
+            }
+          }
+          
+          .skill-name1 {
+            margin: rem(60) auto 0;
+            @include element-img($local-path+'dia-role-skill1-1.png', no-repeat, 100% 100%, rem(195), rem(49));
+            
+            &:hover{
+              .skill-name1-desc {
+                display: block;
+              }
+            }
+          }
+          
+          .skill-name2 {
+            margin: rem(12) auto 0;
+            @include element-img($local-path+'dia-role-skill1-2.png', no-repeat, 100% 100%, rem(195), rem(49));
+            
+            
+          }
+          
+          .skill-name3 {
+            margin: rem(12) auto 0;
+            @include element-img($local-path+'dia-role-skill1-3.png', no-repeat, 100% 100%, rem(195), rem(49));
+            
+            &:hover{
+              .skill-name3-desc {
+                display: block;
+              }
+            }
+          }
+          
+          .skill-name1-desc {
+            display: none;
+            @include layout-pos(absolute, rem(-70), rem(-100), auto, auto, none);
+            @include usual-text(normal, normal, rem(16), rem(20), "sy-r", #a8a075, left, normal, none);
+            text-shadow: rem(2) rem(2) 0 #200e0b, rem(-2) rem(-2) 0 #200e0b, rem(-2) rem(2) 0 #200e0b, rem(2) rem(-2) 0 #200e0b;
+            box-sizing: border-box;
+            padding: rem(14) rem(14);
+            background-color: rgba(0, 0, 0, 0.6);
+            max-width: rem(202);
+            z-index: 3;
+          }
+
+          .skill-name2-desc {
+            display: none;
+            @include layout-pos(absolute, rem(-70), rem(-100), auto, auto, none);
+            @include usual-text(normal, normal, rem(16), rem(20), "sy-r", #a8a075, left, normal, none);
+            text-shadow: rem(2) rem(2) 0 #200e0b, rem(-2) rem(-2) 0 #200e0b, rem(-2) rem(2) 0 #200e0b, rem(2) rem(-2) 0 #200e0b;
+            box-sizing: border-box;
+            padding: rem(14) rem(14);
+            background-color: rgba(0, 0, 0, 0.6);
+            max-width: rem(202);
+            z-index: 3;
+          }
+
+          .skill-name3-desc {
+            display: none;
+            @include layout-pos(absolute, rem(-70), rem(-100), auto, auto, none);
+            @include usual-text(normal, normal, rem(16), rem(20), "sy-r", #a8a075, left, normal, none);
+            text-shadow: rem(2) rem(2) 0 #200e0b, rem(-2) rem(-2) 0 #200e0b, rem(-2) rem(2) 0 #200e0b, rem(2) rem(-2) 0 #200e0b;
+            box-sizing: border-box;
+            padding: rem(14) rem(14);
+            background-color: rgba(0, 0, 0, 0.6);
+            max-width: rem(202);
+            z-index: 3;
+          }
+        }
+      }
+    }
+
+    .sure-btn-box {
+      position: relative;
+      @include layout-flex(flex, space-between, center);
+      margin: rem(16) auto 0;
+      @include element-size(rem(623), rem(81));
+
+      .see-again{
+        display: block;
+        @include element-img($local-path+'dia-share-btn.png', no-repeat, 100% 100%, rem(304), rem(80));
+        
+        span{
+          display: block;
+          @include usual-text(normal, normal, rem(26), rem(80), "sy-m", #a0986d, center, normal, none);
+        }
+      }
+
+      .sure-commit{
+        display: block;
+        @include element-img($local-path+'dia-sure-commit.png', no-repeat, 100% 100%, rem(304), rem(80));
+
+        span{
+          display: block;
+          @include usual-text(normal, normal, rem(26), rem(80), "sy-m", #bca27f, center, normal, none);
+        }
+      }
+    }
+
+  }
+
+  // 已绑定手机号
+  .dia-bg6 {
+    @include element-img($local-path+'dia-bg4.png', no-repeat, 100% 100%, rem(798), rem(483));
+    box-sizing: border-box;
+    padding: rem(126) 0;
+    
+    .succ-text {
+      width: rem(620);
+      @include usual-text(normal, normal, rem(28), rem(30), "sy-sbold", #a8a075, left, normal, none);
+      margin: rem(14) auto 0;
+      
+      .phone-num {
+        color: #d36014;
+      }
+    }
+
+    .succ-btn-box {
+      margin: rem(48) auto 0;
+      position: relative;
+      @include layout-flex(flex, space-between, center);
+      @include element-size(rem(550), rem(81));
+
+      .sure-btn{
+        display: block;
+        @include element-img($local-path+'dia-share-btn.png', no-repeat, 100% 100%, rem(255), rem(80));
+        
+        span{
+          display: block;
+          padding-left: rem(14);
+          @include usual-text(normal, normal, rem(26), rem(80), "sy-m", #c9bb72, center, rem(20), none);
+        }
+      }
+
+      .unbind-btn{
+        display: block;
+        @include element-img($local-path+'dia-sure-commit.png', no-repeat, 100% 100%, rem(255), rem(80));
+
+        span{
+          display: block;
+          padding-left: rem(14);
+          @include usual-text(normal, normal, rem(26), rem(80), "sy-m", #c9a172, center, rem(20), none);
+        }
+      }
+    }
+  }
+
+  // 立即解绑
+  .dia-bg7 {
+    @include element-img($local-path+'dia-bg4.png', no-repeat, 100% 100%, rem(798), rem(483));
+    box-sizing: border-box;
+    // padding: rem(75) 0;
+    padding: rem(100) 0;
+
+    .dia-title5 {
+      margin: 0 auto;
+      @include element-img($local-path+'dia-title4.png', no-repeat, 100% 100%, rem(269), rem(50));
+    }
+    
+    .un-phone-num {
+      display: block;
+      margin: rem(50) auto 0;
+      @include usual-text(normal, normal, rem(26), rem(66), "sy-sbold", #b7af83, left, normal, none);
+      @include element-size(rem(522), rem(64));
+      box-sizing: border-box;
+      padding: rem(0) rem(48);
+      outline: none;
+      border: none;
+      background-color: #130d09;
+
+      &::placeholder {
+        color: #b7af83;
+        font-size: rem(26);
+      }
+
+      &::-webkit-input-placeholder {
+        color: #b7af83;
+        font-size: rem(26);
+      }
+      
+      &:-ms-input-placeholder {
+        color: #b7af83;
+        font-size: rem(26);
+      }
+      
+      &::placeholder {
+        color: #b7af83;
+        font-size: rem(26);
+      }
+    }
+    
+    .unbind-btn-now {
+      display: block;
+      margin: rem(46) auto 0;
+      @include element-img($local-path+'dia-share-btn.png', no-repeat, 100% 100%, rem(255), rem(80));
+
+      span{
+        display: block;
+        @include usual-text(normal, normal, rem(26), rem(80), "sy-m", #c9bb72, center, normal, none);
+      }
+    }
+  }
+
+  // 已解绑
+  .dia-bg8 {
+    @include element-img($local-path+'dia-bg4.png', no-repeat, 100% 100%, rem(798), rem(483));
+    box-sizing: border-box;
+    padding: rem(160) 0 0 0;
+
+    .binded-text {
+      margin: 0 auto 0;
+      @include usual-text(normal, normal, rem(28), rem(66), "sy-sbold", #b7af83, center, normal, none);
+    }
+    
+    .bind-btn-phone-num {
+      display: block;
+      margin: rem(76) auto 0;
+      @include element-img($local-path+'dia-share-btn.png', no-repeat, 100% 100%, rem(255), rem(80));
+
+      span{
+        display: block;
+        @include usual-text(normal, normal, rem(26), rem(80), "sy-m", #c9bb72, center, normal, none);
+      }
+    }
+  }
+
+  // 预约成功提示
+  .dia-bg9 {
+    @include element-img($local-path+'dia-bg4.png', no-repeat, 100% 100%, rem(798), rem(483));
+    box-sizing: border-box;
+    padding: rem(180) 0 0 0;
+    
+    .appointment-succ-text {
+      margin: rem(24) auto 0;
+      width: 100%;
+      padding: 0 rem(20);
+      box-sizing: border-box;
+      @include usual-text(normal, normal, rem(28), rem(30), "sy-sbold", #a8a075, center, normal, none);
+    }
+  }
+
+  // 通用弹窗提示
+  .dia-bg10 {
+    @include element-img($local-path+'dia-bg4.png', no-repeat, 100% 100%, rem(798), rem(483));
+    box-sizing: border-box;
+    padding: rem(90) 0 0 0;
+    
+    .dia-box {
+      width: 100%;
+      height: rem(300);
+      box-sizing: border-box;
+      padding: 0 rem(20);
+      @include layout-flex(flex, center, center);
+    }
+    
+    .common-text {
+      @include usual-text(normal, normal, rem(28), rem(30), "sy-sbold", #a8a075, center, normal, none);
+    }
+  }
+
+  // 完成任务提示
+  .dia-bg11 {
+    @include element-img($local-path+'dia-bg4.png', no-repeat, 100% 100%, rem(798), rem(483));
+    box-sizing: border-box;
+    padding: rem(60) 0 0 0;
+    
+    .dia-title6 {
+      margin: 0 auto 0;
+      @include element-img($local-path+'dia-title6.png', no-repeat, 100% 100%, rem(276), rem(95));
+    }
+    
+    .complete-task-inner {
+      margin: rem(30) auto 0;
+      width: 100%;
+      box-sizing: border-box;
+      padding: rem(0) rem(20);
+    }
+    
+    .complete-task-list {
+      margin: 0 auto;
+      position: relative;
+      @include element-size(rem(608), auto);
+
+      .complete-task-items{
+        @include element-img($local-path+'sec5-task-item-bg.png', no-repeat, 100% 100%, rem(608), rem(95));
+        @include layout-flex(flex, space-between, center);
+        box-sizing: border-box;
+        padding: 0 rem(30) 0 rem(28);
+
+        &:not(:first-child){
+          margin-top: rem(7);
+        }
+
+        &.active{
+          .com-task-get-btn{
+            filter: grayscale(1);
+          }
+        }
+
+        .com-task-item-left{
+          @include element-size(rem(334), auto);
+
+          .com-task-item-title{
+            @include usual-text(normal, normal, rem(20), 1.1, "sy-m", #c9bb72, left, normal, none);
+          }
+  
+          .com-task-item-desc{
+            @include usual-text(normal, normal, rem(18), 1.1, "sy-m", #a0986d, left, normal, none);
+            margin-top: rem(8);
+
+            span{
+              color: #c96f32;
+            }
+          }
+        }
+
+        .task-num-text{
+          @include element-size(rem(47), rem(32));
+          background-color: #050505;
+          @include usual-text(normal, normal, rem(20), rem(32), "sy-m", #c9bb72, center, normal, none);
+          
+          .task-num{
+            // color: #c96f32;
+          }
+        }
+
+        .com-task-get-btn{
+          display: block;
+          @include element-img($local-path+'sec5-task-get-btn.png', no-repeat, 100% 100%, rem(167), rem(59));
+          @include layout-flex(flex, center, center);
+
+          &.active{
+            filter: grayscale(1);
+          }
+
+          span{
+            display: block;
+            @include usual-text(normal, normal, rem(20), 1.1, "sy-m", #a0986d, center, normal, none);
+          }
+        }
+      }
+    }
+  }
+}

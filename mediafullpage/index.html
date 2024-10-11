@@ -1,0 +1,584 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="robots" content="all">
+	<meta name="author" content="DarkCrystal-CP" />
+	<meta name="Copyright" content="DarkCrystal" />
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>媒体中心 - 黯晶科技</title>
+    <meta name="applicable-device" content="pc">
+    <!-- swiper插件依赖样式 -->
+    <!-- <link rel="stylesheet" href="./css/swiper-bundle-10.3.1.min.css"> -->
+    <!-- 全屏插件依赖样式 -->
+    <link rel="stylesheet" href="./css/fullpage.min.css">
+    <!-- 页面主要样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+        <div style="position:absolute;left:0;top:0;width:100%;height:50px;background:rgb(255,255,233);color:rgb(30,84,148);border-bottom:1px solid rgb(230,230,198);text-align:center;line-height:50px;font-size:12px;">您使用的浏览器版本过低，可能会影响到您浏览本网页，建议您升级您的浏览器。</div>
+    <![endif]-->
+    <div id="app" class="wrap">
+        <!-- 顶部菜单 -->
+        <header class="header-container" id="header">
+            <div class="logo-box">
+                <a href="https://alotofanim.com/" class="header-logo logo1" onclick="LOLSendClickAT('btn','kv-logo1','安尼姆logo')" title="安尼姆logo"></a>
+                <a href="https://www.wegame.com.cn/home/" class="header-logo logo2" onclick="LOLSendClickAT('btn','kv-logo2','wegame')" title="wegame logo"></a>
+            </div>
+            <!-- 一级菜单 -->
+            <div class="nav-list" id="nav-menu">
+                <a class="nav-item nav-st-home active" href="#1" onclick="" data-menuanchor="sec1">
+                    <i class="nav-icon"></i>
+                    <span class="txt">首页</span>
+                </a>
+                <a class="nav-item nav-st-yyts" href="#2" onclick="" data-menuanchor="sec2">
+                    <i class="nav-icon"></i>
+                    <span class="txt">菜单2</span>
+                </a>
+                <a class="nav-item nav-st-yylcb" href="#3" onclick="" data-menuanchor="sec3">
+                    <i class="nav-icon"></i>
+                    <span class="txt">菜单3</span>
+                </a>
+                <a class="nav-item nav-st-wegame" href="#4" onclick="" data-menuanchor="sec4">
+                    <i class="nav-icon"></i>
+                    <span class="txt">菜单4</span>
+                </a>
+                <a class="nav-item nav-st-anmjs" href="#5" onclick="" data-menuanchor="sec5">
+                    <i class="nav-icon"></i>
+                    <span class="txt">菜单5</span>
+                </a>
+                <a class="nav-item nav-st-yzm" href="#6" onclick="" data-menuanchor="sec6">
+                    <i class="nav-icon"></i>
+                    <span class="txt">菜单6</span>
+                </a>
+                <a class="nav-item nav-st-cjc" href="#7" onclick="" data-menuanchor="sec7">
+                    <i class="nav-icon"></i>
+                    <span class="txt">菜单7</span>
+                </a>
+                <a class="nav-item nav-st-gdzx" href="#8" onclick="" data-menuanchor="sec8">
+                    <i class="nav-icon"></i>
+                    <span class="txt">菜单8</span>
+                </a>
+            </div>
+            <!-- 二级菜单 -->
+            <div class="nav-sub-list">
+                <ul class="nav-sub-list-inner">
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-item-link active" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单1-1</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单1-2</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单1-3</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单1-4</span>
+                        </a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-item-link active" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单2-1</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单2-2</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单2-3</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单2-4</span>
+                        </a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-item-link active" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单3-1</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单3-2</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单3-3</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单3-4</span>
+                        </a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-item-link active" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单4-1</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单4-2</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单4-3</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单4-4</span>
+                        </a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-item-link active" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单5-1</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单5-2</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单5-3</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单5-4</span>
+                        </a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-item-link active" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单6-1</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单6-2</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单6-3</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单6-4</span>
+                        </a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-item-link active" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单7-1</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单7-2</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单7-3</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单7-4</span>
+                        </a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-item-link active" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单8-1</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单8-2</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单8-3</span>
+                        </a>
+                        <a class="nav-sub-item-link" href="javascript:;">
+                            <i class="sub-nav-icon"></i>
+                            <span class="txt">子菜单8-4</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="rg-info">
+                <div class="search">
+                  <input type="text" placeholder="Search..." />
+                </div>
+                <div class="login-container">
+                  <a href="javascript:;" title="login in" class="login-text" @click="navigateToLogin">login</a>
+                  <a href="javascript:;" title="register" class="register-text"  @click="navigateToRegister">Register</a>
+                </div>
+                <div class="theme-switch">
+                    <svg class="icon icon-dark" width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="" d="M406.613333 72.96a32.426667 32.426667 0 0 1 6.826667 34.986667A384 384 0 0 0 768 639.573333a376.746667 376.746667 0 0 0 147.626667-29.44 32.426667 32.426667 0 0 1 42.666666 42.666667A448.426667 448.426667 0 1 1 372.906667 66.56a32.426667 32.426667 0 0 1 33.706666 6.4z" />
+                    </svg>
+                    <svg class="icon icon-light" width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="" d="M512 226c157.952 0 286 128.048 286 286S669.952 798 512 798 226 669.952 226 512 354.048 226 512 226z m0 60c-124.816 0-226 101.184-226 226S387.184 738 512 738 738 636.816 738 512 636.816 286 512 286zM480 64m30 0l4 0q30 0 30 30l0 68q0 30-30 30l-4 0q-30 0-30-30l0-68q0-30 30-30ZM192 480m0 30l0 4q0 30-30 30l-68 0q-30 0-30-30l0-4q0-30 30-30l68 0q30 0 30 30ZM251.84 721.328l2.832 2.832c11.712 11.712 11.712 30.72 0 42.432l-48.08 48.08a30 30 0 0 1-42.432 0l-2.832-2.832a30 30 0 0 1 0-42.432l48.08-48.08a30 30 0 0 1 42.432 0zM827.84 193.328l2.832 2.832c11.712 11.712 11.712 30.72 0 42.432l-48.08 48.08a30 30 0 0 1-42.432 0l-2.832-2.832a30 30 0 0 1 0-42.432l48.08-48.08a30 30 0 0 1 42.432 0zM193.328 196.16l2.832-2.832a30 30 0 0 1 42.432 0l48.08 48.08c11.712 11.728 11.712 30.72 0 42.432l-2.832 2.832a30 30 0 0 1-42.432 0l-48.08-48.08a30 30 0 0 1 0-42.432zM737.328 724.16l2.832-2.832a30 30 0 0 1 42.432 0l48.08 48.08c11.712 11.728 11.712 30.72 0 42.432l-2.832 2.832a30 30 0 0 1-42.432 0l-48.08-48.08a30 30 0 0 1 0-42.432zM960 510v4C960 530.576 946.56 544 930 544h-68A30 30 0 0 1 832 514v-4c0-16.576 13.44-30 30-30h68c16.576 0 30 13.44 30 30zM480 832m30 0l4 0q30 0 30 30l0 68q0 30-30 30l-4 0q-30 0-30-30l0-68q0-30 30-30Z" />
+                    </svg>
+                </div>
+            </div>
+        </header>
+        <!-- 向下引导 -->
+        <div class="scrolldown">
+            <div class="chevrons">
+              <div class="chevrondown"></div>
+              <div class="chevrondown"></div>
+            </div>
+        </div>
+        <!-- 正文内容 -->
+        <div class="main-content" id="fullpage">
+            <!-- sec1 -->
+            <div class="section sec1" id="section1">
+                <!-- 线 -->
+                <div class="indicator"></div>
+                <!-- 背景 -->
+                <div class="sec-cont1" id="cont1"></div>
+                <!-- 背景上的内容 -->
+                <div class="details" id="details-even">
+                    <div class="place-box">
+                      <div class="text">Switzerland Alps</div>
+                    </div>
+                    
+                    <div class="title-box-1"><div class="title-1">SAINT</div></div>
+                    <div class="title-box-2"><div class="title-2">ANTONIEN</div></div>
+                    <div class="desc">
+                      Tucked away in the Switzerland Alps, Saint Antönien offers an idyllic retreat for those seeking tranquility and adventure alike. It's a hidden gem for backcountry skiing in winter and boasts lush trails for hiking and mountain biking during the warmer months.
+                    </div>
+                    <div class="cta">
+                      <button class="bookmark">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                      <button class="discover">Discover Location</button>
+                    </div>
+                </div>
+              
+                <div class="details" id="details-odd">
+                    <div class="place-box">
+                      <div class="text">Switzerland Alps</div>
+                    </div>
+                    <div class="title-box-1"><div class="title-1">SAINT </div></div>
+                    <div class="title-box-2"><div class="title-2">ANTONIEN</div></div>
+                    <div class="desc">
+                      Tucked away in the Switzerland Alps, Saint Antönien offers an idyllic retreat for those seeking tranquility and adventure alike. It's a hidden gem for backcountry skiing in winter and boasts lush trails for hiking and mountain biking during the warmer months.
+                    </div>
+                    <div class="cta">
+                      <button class="bookmark">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                      <button class="discover">Discover Location</button>
+                    </div>
+                </div>
+              
+                <div class="pagination" id="pagination">
+                    <div class="arrow arrow-left">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15.75 19.5L8.25 12l7.5-7.5"
+                        />
+                      </svg>
+                    </div>
+                    <div class="arrow arrow-right">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                        />
+                      </svg>
+                    </div>
+                    <div class="progress-sub-container" >
+                      <div class="progress-sub-background" >
+                          <div class="progress-sub-foreground" ></div>
+                      </div>
+                  </div>
+                    
+                  <div class="slide-numbers" id="slide-numbers"></div>
+                </div>
+            </div>
+            <!-- sec2 -->
+            <div class="section sec2" id="section2">
+                <!-- 嵌套 -->
+                <div class="slide">
+                    <h1 style="display: block;text-align: center;font-size: 60px;">Section 2.1</h1>
+                    <p>Animation triggered by fullPage callbacks</p>
+                </div>
+                <div class="slide">
+                    <h1 style="display: block;text-align: center;font-size: 60px;">Slide 2.2</h1>
+                    <p>Animation triggered by fullPage callbacks</p>
+                </div>
+                <div class="slide">
+                    <h1 style="display: block;text-align: center;font-size: 60px;">Slide 2.3</h1>
+                    <p>Animation triggered by fullPage callbacks</p>
+                </div>
+            </div>
+            <!-- sec3 -->
+            <div class="section sec3">
+                Section 3
+                <h1>Lazy load</h1>
+                <img data-srcset="https://www.w3schools.com/tags/img_pink_flowers.jpg, https://www.w3schools.com/tags/img_white_flower.jpg"  alt="1"/>
+                <p>Use the `data-src` or `data-srcset` attributes</p>
+            </div>
+            <!-- sec4 -->
+            <div class="section sec4">
+                Section 4
+                <h1>视频自动播放，通过添加"data-autoplay"属性</h1>
+                <!-- Notice we added the attribute "data-autoplay" -->
+                <video loop muted controls="false" data-autoplay>
+                    <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                </video>
+            </div>
+            <!-- sec5 -->
+            <div class="section sec5">
+                Section 5
+                <h1>音频自动播放，通过添加"data-autoplay"属性</h1>
+                <!-- Notice we added the attribute "data-autoplay" -->
+                <audio controls data-autoplay>
+                    <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+                    <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <!-- sec6 -->
+            <div class="section sec6">
+                Section 6
+                <h1>methods</h1>
+                <div class="methods-list" id="actions">
+                    <a id="moveSectionUp" href="#">moveSectionUp</a>
+                    <a id="moveSectionDown" href="#">moveSectionDown</a>
+                    <a id="silentMoveTo" href="#">silentMoveTo(2)</a>
+                    <a id="moveTo" href="#">moveTo(2,2)</a>
+                    <a id="silentMoveToSlide" href="#">silentMoveTo(2,2)</a>
+                    <a id="moveSlideLeft" href="#">moveSlideLeft</a>
+                    <a id="moveSlideRight" href="#">moveSlideRight</a>
+                    <a id="setAutoScrollingTrue" href="#">setAutoScrolling(true)</a>
+                    <a id="setAutoScrollingFalse" href="#">setAutoScrolling(false)</a>
+                    <a id="setAllowScrollingTrue" href="#">setAllowScrolling(true)</a>
+                    <a id="setAllowScrollingFalse" href="#">setAllowScrolling(false)</a>
+                    <a id="setKeyboardScrollingTrue" href="#">setKeyboardScrolling(true)</a>
+                    <a id="setKeyboardScrollingFalse" href="#">setKeyboardScrolling(false)</a>
+                    <a id="setScrollingSpeed1500" href="#">setScrollingSpeed(1500)</a>
+                    <a id="setScrollingSpeed700" href="#">setScrollingSpeed(700)</a>
+                    <a id="destroy" href="#">destroy('all')</a>
+                    <a id="undestroy" href="#">undestroy</a>
+                    <a id="reBuild" href="#">reBuild</a>
+                    <a id="setLockAnchorsTrue" href="#">setLockAnchors(true)</a>
+                    <a id="setLockAnchorsFalse" href="#">setLockAnchors(false)</a>
+                </div>
+            </div>
+            <!-- sec7 -->
+            <div class="section sec7">
+                Section 7
+                <h1>scrollable element</h1>
+                <div class="scroll-container">
+                    <div class="box" style="width: 100%;height: 600px;">
+                        <!-- We use the "muted" property to auto-play the video when using the fullPage.js attribute "data-autoplay" -->
+                        <video class="overlay-video" loop muted="true" playsinline>
+                            <source src="https://cdn.jsdelivr.net/gh/alvarotrigo/fullpage-assets/videos/macpro.mp4" type="video/mp4" />
+                            <source src="https://cdn.jsdelivr.net/gh/alvarotrigo/fullpage-assets/videos/macpro.webm" type="video/webm" />
+                        </video>
+                        <div class="layer">
+                            <h1>Play Video on Scroll</h1>
+                        </div>
+                    </div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                    <div class="box" style="width: 100%;height: 600px;">Scroll Inside...</div>
+                </div>
+            </div>
+            <!-- sec8 -->
+            <div class="section sec8">
+                Section 8
+                <!-- 背景视频 -->
+                <video class="overlay-video" loop muted playsinline data-autoplay>
+                    <source src="https://cdn.jsdelivr.net/gh/alvarotrigo/fullpage-assets/videos/forest.mp4" type="video/mp4">
+                    <source src="https://cdn.jsdelivr.net/gh/alvarotrigo/fullpage-assets/videos/forest.webm" type="video/webm">
+                </video>
+                <!-- 背景视频上的文案 -->
+                <div class="layer">
+                    <h1>Background Videos</h1>
+                </div>
+            </div>
+            <!-- sec9 页脚 -->
+            <div class="section sec9 fp-auto-height">
+                <div class="intro footer">
+                    <h1>footer</h1>
+                    <p>This could be my footer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- pop start -->
+    <!-- 视频弹窗 -->
+    <div class="dialog" id="videotc" style="display: none">
+        <div class="dia-con dia-bg1">
+            <div class="dia-box">
+                <div class="vd-cont" id="video_container"></div>
+            </div>
+        </div>
+        <a class="dia-close" href="javascript:closeDialog();" onclick="LOLSendClickAT('btn','btn-close1','关闭弹窗');" title="关闭"></a>
+    </div>
+
+    <!-- 分享保存截图 -->
+    <!-- 渲染结构 -->
+    <div class="screenshots-html" id="screenshots-html">
+        <div class="screenshots-content">
+            <!-- 修改背景图：歧路之子：dia-share-title1 异化士兵：dia-share-title2 白羽之首：dia-share-title3 鼠与狮：dia-share-title4 -->
+            <h3 class="screen-share-title"></h3>
+            <div class="screen-info-box">
+                <div class="lf-info">
+                    <!-- 歧路之子：dia-anm-img1.png-->
+                    <!-- 异化士兵：dia-anm-img2.png -->
+                    <!-- 白羽之首：dia-anm-img3.png -->
+                    <!-- 鼠与狮：dia-anm-img4.png -->
+                    <img id="anmImg" src="" alt="">
+                </div>
+                <div class="rg-info">
+                    <p class="anm-name"></p>
+                    <!-- on1:歧路之子 on2:异化士兵 on3:白羽之首 on4:鼠与狮 -->
+                    <p class="anm-skill-name skill-name1 on1"></p>
+                    <p class="anm-skill-name skill-name2 on1"></p>
+                    <p class="anm-skill-name skill-name3 on1"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 生成图结构 -->
+    <div class="dialog" id="diaShare" style="display:none">
+        <div class="dia-con dialog-share">
+            <img class="share-screenshots-image" src="" alt="生成的分享图片" />
+            <div class="share-btn-box">
+                <a href="javascript:;" class="screen-share" onclick="LOLSendClickAT('btn','screen-share','一键分享')"><span>一键分享</span></a>
+                <a href="javascript:;" class="screen-download" onclick="LOLSendClickAT('btn','screen-download','下载')"></a>
+            </div>
+        </div>
+        <a class="dia-close" href="javascript:closeDialog();" title="关闭"></a>
+    </div>
+
+    <!-- 绑定手机号 -->
+    <div class="dialog" id="bindPhoneNum" style="display: none">
+        <div class="dia-con dia-bg3">
+            <div class="dia-box">
+                <h3 class="dia-title2"></h3>
+                <form class="bind-form" action="">
+                    <input type="text" placeholder="输入手机号" class="phone-num" />
+                    <div class="verification-box">
+                        <input type="text" placeholder="请输入验证码" class="phone-code-num" />
+                        <!-- 加on类名则表示倒计时 -->
+                        <a href="javascript:;" class="get-code" onclick="LOLSendClickAT('btn','get-code','获取验证码')"><span>获取验证码</span></a>
+                    </div>
+                    <div class="bind-user-agreement">
+                        <input type="checkbox" class="user-agreement-checkbox">
+                        <label for="">我同意授权接受官方相关信息通知</label>
+                    </div>
+                    <div class="user-agreement-desc">
+                        <p class="user-agreement-text">成功绑定后。该手机号将用户接受《安尼姆的无尽旅途》的活动、更新等消息通知。</p>
+                        <!-- <p class="user-agreement-text">您可以通过本入口进行手机号码的解绑，在您执行解绑操作后，该手机号将不再收到相关通知。</p> -->
+                        <p class="user-agreement-text">如您填写并成功绑定手机号后则视为同意授权我们在上述目的范围内收集您的手机号。</p>
+                        <p class="user-agreement-text">感谢您的支持，谢谢。</p>
+                    </div>
+                </form>
+                <a href="javascript:;" class="submit-phone-num" onclick="LOLSendClickAT('btn','submit-phone-num','确认并提交')" title="确认并提交"><span>确认并提交</span></a>
+            </div>
+        </div>
+        <a class="dia-close" href="javascript:closeDialog();" onclick="LOLSendClickAT('btn','btn-close2','关闭弹窗');" title="关闭"></a>
+    </div>
+
+    <!-- 通用弹窗提示 -->
+    <div class="dialog" id="commonTips" style="display: none">
+        <div class="dia-con dia-bg10">
+            <div class="dia-box">
+                <p class="common-text">通用弹窗提示文案</p>
+            </div>
+        </div>
+        <a class="dia-close" href="javascript:closeDialog();" onclick="LOLSendClickAT('btn','btn-close2','关闭弹窗');" title="关闭"></a>
+    </div>
+
+    <!-- 头部插件 -->
+    <script src="//source.darkcrystal.cn/assets/header/header.js"></script>
+    <!-- 页脚插件 -->
+    <script src="//source.darkcrystal.cn/assets/footer/footer.js"></script>
+    <!-- 全屏插件 -->
+    <script src="./js/fullpage.min.js"></script>
+    <!-- gsap动画组件 -->
+    <script src="./js/gsap.min.js"></script>
+    <!-- swiper插件 -->
+    <!-- <script charset="utf-8" src="./js/swiper-bundle-10.3.1.min.js"></script> -->
+    <!-- 二维码生成插件 -->
+    <script src="./js/qrcode.js"></script>
+    <!-- 截图插件 -->
+    <script src="./js/html2canvas1.4.1.min.js"></script>
+    <!-- 页面逻辑 -->
+    <script src="./js/index.js"></script>
+    <!-- Google tag (gtag.js) GA4  (Do not copy this!!) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0MF57YDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Q0MF57YDRL');
+
+        /* Adwords */
+        gtag('config', 'AW-1012934304');
+    </script>
+    <!-- End Google Tag-->
+</body>
+
+</html>

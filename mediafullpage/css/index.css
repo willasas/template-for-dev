@@ -1,0 +1,653 @@
+@charset "UTF-8";
+/* ==============VARIABLES START============== */
+@import url("https://fonts.googleapis.com/css?family=Inter:400|Jura:400");
+:root { --black: #000; --white: #fff; --light-background-color: var(--white); --dark-background-color: var(--black); --light-origin: #ff6702; --light-yellow: #ffd902; }
+
+/* ==============VARIABLES END============== */
+/* ==============FUNCTION END============== */
+/* ==============FUNCTION END============== */
+/* ==============MIXIN START============== */
+/* ==============MIXIN END============== */
+/* ==============PLACEHOLDER START============== */
+/* ==============PLACEHOLDER END============== */
+/* ==============BASE STYLE START============== */
+.scroll-x { position: relative; overflow-x: auto; scrollbar-width: thin; /* Firefox滚动条样式 */ scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1); /* 定义滚动条轨道 */ }
+
+.scroll-x::-webkit-scrollbar { width: 10px; /* 设置滚动条的宽度 */ }
+
+.scroll-x::-webkit-scrollbar-thumb { background-color: rgba(0, 0, 0, 0.5); /* 设置滚动条滑块的颜色 */ border-radius: 0; /* 鼠标悬停时改变颜色 */ transition: background-color 0.3s ease; }
+
+.scroll-x::-webkit-scrollbar-thumb:hover { background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时颜色加深 */ }
+
+.scroll-x::-webkit-scrollbar-track { background-color: rgba(0, 0, 0, 0.1); /* 设置滚动条轨道背景色 */ border-radius: 5px; /* 可以添加圆角 */ }
+
+.scroll-y { position: relative; overflow-x: hidden; overflow-y: scroll; }
+
+.scroll-y::-webkit-scrollbar { width: 0.04rem; border-radius: 0; background: #2b3846; }
+
+.scroll-y::-webkit-scrollbar-thumb { width: 0.04rem; height: 1px; border-radius: 0; background: linear-gradient(to right, #e6deb3, #e6deb3); }
+
+.scroll-y::-webkit-scrollbar-thumb:disabled { background: #000; }
+
+.scroll-y::-webkit-scrollbar-track { border-radius: 0; background: #000; }
+
+@font-face { font-family: "sy-r"; src: url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-r.eot"); src: url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-r.eot?#iefix") format("embedded-opentype"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-r.woff") format("woff"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-r.ttf") format("truetype"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-r.svg#sy-r") format("svg"); font-style: normal; font-weight: normal; }
+
+@font-face { font-family: "sy-m"; src: url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-m.eot"); src: url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-m.eot?#iefix") format("embedded-opentype"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-m.woff") format("woff"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-m.ttf") format("truetype"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-m.svg#sy-m") format("svg"); font-style: normal; font-weight: normal; }
+
+@font-face { font-family: "sy-sbold"; src: url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-sbold.eot"); src: url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-sbold.eot?#iefix") format("embedded-opentype"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-sbold.woff") format("woff"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-sbold.ttf") format("truetype"), url("//game.gtimg.cn/images/act/cp/anm20240928//fonts/sy-sbold.svg#sy-sbold") format("svg"); font-style: normal; font-weight: normal; }
+
+@font-face { font-family: 'sellnum-1'; src: url(//game.gtimg.cn/images/lol/common/sell/font/sellnum-1.eot); src: url(//game.gtimg.cn/images/lol/common/sell/font/sellnum-1.woff) format("woff"), url(//game.gtimg.cn/images/lol/common/sell/font/sellnum-1.ttf) format("truetype"), url(//game.gtimg.cn/images/lol/common/sell/font/sellnum-1.svg) format("svg"); }
+
+@supports (-webkit-background-clip: text) { .text-color1 { font-size: 1.14rem; background: linear-gradient(to top, #adfeff, #eeffff); -webkit-text-fill-color: transparent; -webkit-background-clip: text; color: transparent; }
+  .text-color2 { font-size: 1.14rem; background: linear-gradient(to top, #fc578c, #ffa2e4); -webkit-text-fill-color: transparent; -webkit-background-clip: text; color: transparent; }
+  .text-color3 { font-size: 1.14rem; background: linear-gradient(to top, #3c89e6, #1c5598); -webkit-text-fill-color: transparent; -webkit-background-clip: text; color: transparent; }
+  .text-color4 { font-size: 1.14rem; background: linear-gradient(to top, #fffac2, #fbffff); -webkit-text-fill-color: transparent; -webkit-background-clip: text; color: transparent; }
+  .text-color { font-size: 0.8rem; background: linear-gradient(to bottom, #dbad7f, #967257); -webkit-text-fill-color: transparent; -webkit-background-clip: text; color: transparent; } }
+
+/* ==============BASE STYLE END============== */
+/* ==============ANIMATION START============== */
+@keyframes ani-scale { 0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); } }
+
+@keyframes rotates { 0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); } }
+
+@keyframes translateY { 0% { transform: translateY(0);
+    opacity: 1; }
+  50% { transform: translateY(0.1rem);
+    opacity: 1; }
+  100% { transform: translateY(0);
+    opacity: 1; } }
+
+@keyframes translateY2 { 0% { transform: translate(-50%, 0);
+    opacity: 1; }
+  50% { transform: translate(-50%, 0.1rem);
+    opacity: 1; }
+  100% { transform: translate(-50%, 0);
+    opacity: 1; } }
+
+@keyframes translateX { 0% { transform: translateX(0);
+    opacity: 1; }
+  50% { transform: translateX(0.1rem);
+    opacity: 1; }
+  100% { transform: translateX(0);
+    opacity: 1; } }
+
+@keyframes fadeIn { 0% { transform: translateY(-10);
+    opacity: 0; }
+  100% { transform: translateY(0);
+    opacity: 1; } }
+
+@keyframes scrolldown-anim { 0% { opacity: 0;
+    height: 6px; }
+  40% { opacity: 1;
+    height: 10px; }
+  80% { transform: translate(0, 20px);
+    height: 10px;
+    opacity: 0; }
+  100% { height: 3px;
+    opacity: 0; } }
+
+@keyframes pulse { from { opacity: 0; }
+  to { opacity: 0.5; } }
+
+/* ==============ANIMATION END============== */
+@media screen and (min-width: 1025px) { body, div, p, ul, li, table, tbody, tr, td, textarea, form, input, h1, h2, h3, h4, h5, dl, dt, dd, img, iframe, header, nav, section, article, footer, figure, figcaption, menu { margin: 0; padding: 0; list-style: none; }
+  body { -webkit-text-size-adjust: none; font-size: 0.24rem; padding-top: 0; background-color: #000; }
+  body.light { color: var(--white); background-color: var(--white); }
+  header, nav, section, article, footer, figure, figcaption { display: block; }
+  h1, h2, h3, h4, h5, h6, th { font-weight: normal; font-size: 100%; }
+  ol, ul { margin: 0; padding: 0; }
+  fieldset { border: none; margin: 0; padding: 0; }
+  a, li, ul, [onclick] { -webkit-tap-highlight-color: none; -webkit-tap-highlight-color: transparent; }
+  table { border-collapse: collapse; border-spacing: 0; }
+  em, strong { font-weight: normal; font-style: normal; }
+  a { text-decoration: none; }
+  a:hover { filter: brightness(1); -webkit-filter: brightness(1); }
+  .hide { display: block; width: 0; height: 0; overflow: hidden; }
+  :focus { outline: none; }
+  .c:before, .c:after { content: ""; display: table; }
+  .c:after { clear: both; }
+  .floatl { float: left; margin-top: 0.4rem; }
+  .floatr { float: right; }
+  .pr { position: relative; }
+  .pa { position: absolute; }
+  .db { display: block; text-indent: -9999em; }
+  .pf { position: fixed; }
+  input, textarea, section { border-radius: 0; outline: none; }
+  body, button, input, select, textarea { font: 0.12rem/1.5 tahoma,sans-serif; }
+  html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  .hide, .hid { text-indent: -99.99rem; font-size: 0rem; overflow: hidden; width: 0rem; height: 0rem; opacity: 0; }
+  .wrapper *, .wrapper *::after, .wrapper *::before { outline: none; background-repeat: no-repeat; background-position: center top; font-style: normal; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+  #afooter { display: flex; justify-content: center; align-items: center; padding: 0.3rem 0; text-align: center; font-size: 0.14rem; line-height: 0.2rem; background-color: #000; color: #c0c0c0; }
+  #afooter a { color: #c0c0c0; text-decoration: none; }
+  #afooter a:hover { color: #c0c0c0; text-decoration: none; } }
+
+@media screen and (max-width: 1024px) { body, div, p, ul, li, table, tbody, tr, td, textarea, form, input, h1, h2, h3, h4, h5, dl, dt, dd, img, iframe, header, nav, section, article, footer, figure, figcaption, menu { margin: 0; padding: 0; list-style: none; }
+  body { -webkit-text-size-adjust: none; font-size: 0.24rem; background-color: #000; }
+  header, nav, section, article, footer, figure, figcaption { display: block; }
+  h1, h2, h3, h4, h5, h6, th { font-weight: normal; font-size: 100%; }
+  ol, ul { margin: 0; padding: 0; }
+  fieldset { border: none; margin: 0; padding: 0; }
+  a, li, ul, [onclick] { -webkit-tap-highlight-color: none; -webkit-tap-highlight-color: transparent; }
+  table { border-collapse: collapse; border-spacing: 0; }
+  em, strong { font-weight: normal; font-style: normal; }
+  a { text-decoration: none; }
+  .hide { display: block; width: 0; height: 0; overflow: hidden; }
+  :focus { outline: none; }
+  .c:before, .c:after { content: ""; display: table; }
+  .c:after { clear: both; }
+  .fl { float: left; }
+  .fr { float: right; }
+  .pr { position: relative; }
+  .pa { position: absolute; }
+  .db { display: block; text-indent: -9999em; }
+  .pf { position: fixed; }
+  .hide, .hid { text-indent: -99.99rem; font-size: 0rem; overflow: hidden; width: 0rem; height: 0rem; opacity: 0; }
+  input, textarea, section { border-radius: 0; outline: none; }
+  body, html { width: 100%; -webkit-user-select: none; user-select: none; -webkit-text-size-adjust: none; font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; overflow-x: hidden; }
+  html { -webkit-text-size-adjust: 100%; }
+  i { font-style: normal; }
+  #afooter { padding: 0.3rem 0; text-align: center; font-size: 0.12rem; line-height: 0.3rem; background-color: #000; color: #c0c0c0; }
+  #afooter a { color: #c0c0c0; text-decoration: none; }
+  #afooter a:hover { color: #c0c0c0; text-decoration: none; } }
+
+.wrap { margin: 0 auto; position: relative; overflow: hidden; width: 100%; height: 100%; }
+
+.wrap .header-container { position: fixed; top: 0; right: auto; bottom: auto; left: 50%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); z-index: 999; display: flex; -webkit-box-pack: space-between; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; width: 100%; height: 1.2rem; background-color: rgba(24, 24, 24, 0.72); box-sizing: border-box; padding: 0 0.5rem; }
+
+.wrap .header-container .logo-box { position: relative; z-index: 11; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.wrap .header-container .logo-box .header-logo { display: block; position: relative; }
+
+.wrap .header-container .logo-box .logo1 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/logo1.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.67rem; height: 0.61rem; background-color: rgba(189, 34, 34, 0.72); }
+
+.wrap .header-container .logo-box .logo2 { margin-left: 0.22rem; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/logo2.png); background-repeat: no-repeat; background-size: 100% 100%; width: 0.62rem; height: 0.6rem; background-color: rgba(13, 161, 105, 0.72); }
+
+.wrap .header-container .nav-list { position: relative; z-index: 11; margin-left: 16.5%; min-width: 10.2rem; height: 100%; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.wrap .header-container .nav-list .nav-item { display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; position: relative; height: 100%; }
+
+.wrap .header-container .nav-list .nav-item.active, .wrap .header-container .nav-list .nav-item:hover { background: rgba(0, 0, 0, 0.5); }
+
+.wrap .header-container .nav-list .nav-item.active .txt, .wrap .header-container .nav-list .nav-item:hover .txt { color: #a0986d; }
+
+.wrap .header-container .nav-list .nav-item.active .txt::after, .wrap .header-container .nav-list .nav-item:hover .txt::after { content: ""; display: block; }
+
+.wrap .header-container .nav-list .nav-item .txt { display: block; position: relative; font: normal normal 0.22rem / 1.2rem sy-m; color: #d7d7d7; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.wrap .header-container .nav-list .nav-item .txt::after { content: ""; display: none; position: absolute; left: 0; right: 0; bottom: 0.34rem; width: 100%; height: 1px; background-color: #a0986d; }
+
+.wrap .header-container .nav-list .nav-item .nav-icon { display: block; margin-left: 0.08rem; margin-bottom: 0.05rem; vertical-align: middle; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/header-nav-icon.png); background-repeat: no-repeat; background-size: 100% 100%; width: 0.25rem; height: 0.22rem; background-color: rgba(201, 9, 9, 0.5); }
+
+.wrap .header-container .nav-sub-list { position: fixed; top: 0; right: auto; bottom: auto; left: 0; -webkit-transform: none; -ms-transform: none; transform: none; z-index: 10; width: 100%; height: auto; min-height: 4rem; display: none; background-color: #000; box-sizing: border-box; padding: 1.2rem 6rem; }
+
+.wrap .header-container .nav-sub-list.show { display: block; animation: fadeIn .3s; }
+
+.wrap .header-container .nav-sub-list .nav-sub-list-inner { margin: 0 auto; width: 100%; height: auto; display: flex; -webkit-box-pack: space-evenly; -webkit-justify-content: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.wrap .header-container .nav-sub-list .nav-sub-list-inner .nav-sub-item { width: 1.2rem; height: auto; }
+
+.wrap .header-container .nav-sub-list .nav-sub-list-inner .nav-sub-item .nav-sub-item-link { display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; width: 100%; margin-bottom: 0.1rem; }
+
+.wrap .header-container .nav-sub-list .nav-sub-list-inner .nav-sub-item .nav-sub-item-link .txt { display: block; position: relative; font: normal normal 0.16rem / 0.22rem sy-m; color: #d7d7d7; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.wrap .header-container .nav-sub-list .nav-sub-list-inner .nav-sub-item .nav-sub-item-link .sub-nav-icon { display: block; margin-right: 0.08rem; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/header-nav-icon.png); background-repeat: no-repeat; background-size: 100% 100%; width: 0.16rem; height: 0.16rem; background-color: rgba(201, 9, 9, 0.5); }
+
+.wrap .header-container .nav-sub-list .nav-sub-list-inner .nav-sub-item .nav-sub-item-link.active .txt { color: #3f61ff; }
+
+.wrap .header-container .nav-sub-list .nav-sub-list-inner .nav-sub-item .nav-sub-item-link.active .sub-nav-icon { background-color: rgba(9, 201, 35, 0.5); }
+
+.wrap .header-container .rg-info { position: relative; z-index: 11; width: 100%; display: flex; -webkit-box-pack: flex-end; -webkit-justify-content: flex-end; -ms-flex-pack: flex-end; justify-content: flex-end; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.wrap .header-container .rg-info .search { width: auto; height: 100%; margin-right: 0.2rem; }
+
+.wrap .header-container .rg-info .search input { border: none; padding: 0.14rem; border-radius: 0.26rem; background-color: rgba(0, 0, 0, 0.9); font: normal normal 0.16rem / 0.22rem sy-m; color: #fff; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.wrap .header-container .rg-info .login-container { position: relative; overflow: hidden; font: normal normal 0.22rem / 0.36rem sy-m; color: #fff; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; background: transparent; cursor: pointer; transition: all 0.3s ease; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.wrap .header-container .rg-info .login-container a { display: block; font: normal normal 0.22rem / 0.36rem sy-m; color: #fff; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; padding: 6px 16px; border-radius: 48px; min-width: 64px; box-shadow: inset 2px 2px 2px 0px rgba(33, 255, 255, 0.5), 2px 2px 10px 0px rgba(0, 0, 0, 0.1), 2px 2px 10px 0px rgba(0, 0, 0, 0.1); -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: all .3s; transition: all .3s; }
+
+.wrap .header-container .rg-info .login-container a:hover { cursor: pointer; }
+
+.wrap .header-container .rg-info .login-container .register-text { margin-left: 0.16rem; }
+
+.wrap .header-container .rg-info .theme-switch { width: 32px; height: 32px; border-radius: 50%; background-color: var(--white); margin-left: 10px; text-align: center; opacity: .8; z-index: 33; transition: all 300ms linear; display: flex; justify-content: center; align-items: center; }
+
+.wrap .header-container .rg-info .theme-switch.switched .icon-dark { display: block; }
+
+.wrap .header-container .rg-info .theme-switch.switched .icon-light { display: none; }
+
+.wrap .header-container .rg-info .theme-switch .icon { display: block; width: 16px; height: 16px; }
+
+.wrap .header-container .rg-info .theme-switch .icon-dark { display: none; }
+
+.wrap .header-container .rg-info .theme-switch .icon-dark path { fill: var(--black); }
+
+.wrap .header-container .rg-info .theme-switch .icon-light { display: block; }
+
+.wrap .header-container .rg-info .theme-switch .icon-light path { fill: var(--light-yellow); }
+
+.wrap .fp-watermark { display: none; }
+
+.wrap .left-float { position: fixed; top: auto; right: auto; bottom: 2.21rem; left: 0; -webkit-transform: none; -ms-transform: none; transform: none; z-index: 999; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/left-float-bg.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.54rem; height: 4.94rem; box-sizing: border-box; padding: 2.66rem 0.8rem 0.74rem 0.3rem; }
+
+.wrap .left-float .left-float-img { margin: 0 auto; width: 1.2rem; height: 1.2rem; }
+
+.wrap .left-float .left-float-img img { margin: 0 auto; display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.wrap .left-float .left-float-name { margin: 0.14rem auto 0; font: normal normal 0.2rem / 0.22rem sy-m; color: #cbbf7f; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.wrap .left-float .left-float-text { display: block; margin: -2rem auto 0; position: relative; font: normal normal 0.2rem / 0.36rem sy-m; color: #cbbf7f; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/left-float-text-bg.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.42rem; height: 0.36rem; }
+
+.wrap .scrolldown { position: fixed; top: auto; right: auto; bottom: 0.52rem; left: 50%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); z-index: 999; --color: white; --sizeX: 30px; --sizeY: 50px; width: var(--sizeX); height: var(--sizeY); margin-left: var(sizeX/2); border: calc(var(--sizeX) / 10) solid var(--color); border-radius: 50px; box-sizing: border-box; margin-bottom: 16px; }
+
+.wrap .scrolldown::before { content: ""; position: absolute; bottom: 30px; left: 50%; width: 6px; height: 6px; margin-left: -3px; background-color: var(--color); border-radius: 100%; animation: scrolldown-anim 2s infinite; box-sizing: border-box; box-shadow: 0px -5px 3px 1px #ffffff66; }
+
+.wrap .scrolldown .chevrons { padding: 6px 0 0 0; margin-left: -3px; margin-top: 48px; width: 30px; display: flex; flex-direction: column; align-items: center; }
+
+.wrap .scrolldown .chevrondown { margin-top: -6px; position: relative; border: solid var(--color); border-width: 0 3px 3px 0; display: inline-block; width: 10px; height: 10px; transform: rotate(45deg); }
+
+.wrap .scrolldown .chevrondown:nth-child(odd) { animation: pulse 500ms ease infinite alternate; }
+
+.wrap .scrolldown .chevrondown:nth-child(even) { animation: pulse 500ms ease infinite alternate 250ms; }
+
+.wrap .main-content { position: relative; width: 100vw; height: 100vh; }
+
+.wrap .sec1 { background: transparent url(//game.gtimg.cn/images/act/cp/anm20240928/bg1.jpg) top center/100% 100% no-repeat; background-origin: initial; background-clip: initial; background-attachment: initial; width: 100vw; height: 100vh; position: relative; overflow: hidden; z-index: 6; justify-content: flex-end; flex-direction: row; flex-wrap: nowrap; background-image: linear-gradient(128deg, #40afff, #3f61ff); }
+
+.wrap .sec1 .sec-cont1 { position: absolute; top: 0; right: auto; bottom: auto; left: 0; -webkit-transform: none; -ms-transform: none; transform: none; z-index: 1; width: 100%; height: 100%; }
+
+.wrap .sec1 .sec-cont1 .card { position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: 100%; background-size: cover; box-shadow: 6px 6px 10px 2px rgba(0, 0, 0, 0.6); }
+
+.wrap .sec1 .sec-cont1 #btn { position: absolute; top: 690px; left: 16px; z-index: 99; }
+
+.wrap .sec1 .sec-cont1 .card-content { position: absolute; top: 0; right: auto; bottom: auto; left: 0; -webkit-transform: none; -ms-transform: none; transform: none; z-index: 2; color: #FFFFFFDD; padding-left: 16px; }
+
+.wrap .sec1 .sec-cont1 .content-place { margin-top: 6px; font-size: 13px; font-weight: 500; }
+
+.wrap .sec1 .sec-cont1 .content-place { font-weight: 500; }
+
+.wrap .sec1 .sec-cont1 .content-title-1, .wrap .sec1 .sec-cont1 .content-title-2 { font-weight: 600; font-size: 20px; font-family: "Oswald", sans-serif; }
+
+.wrap .sec1 .sec-cont1 .content-start { width: 30px; height: 5px; border-radius: 99px; background-color: #FFFFFFDD; }
+
+.wrap .sec1 .details { z-index: 22; position: absolute; top: 240px; left: 60px; }
+
+.wrap .sec1 .details .place-box { height: 46px; overflow: hidden; }
+
+.wrap .sec1 .details .place-box .text { padding-top: 16px; font-size: 20px; }
+
+.wrap .sec1 .details .place-box .text:before { top: 0; left: 0; position: absolute; content: ""; width: 30px; height: 4px; border-radius: 99px; background-color: white; }
+
+.wrap .sec1 .details .title-1, .wrap .sec1 .details .title-2 { font-weight: 600; font-size: 72px; font-family: "Oswald", sans-serif; }
+
+.wrap .sec1 .details .title-box-1, .wrap .sec1 .details .title-box-2 { margin-top: 2px; height: 100px; overflow: hidden; }
+
+.wrap .sec1 .details > .desc { margin-top: 16px; width: 500px; }
+
+.wrap .sec1 .details > .cta { width: 500px; margin-top: 24px; display: flex; align-items: center; }
+
+.wrap .sec1 .details > .cta > .bookmark { border: none; background-color: #ecad29; width: 36px; height: 36px; border-radius: 99px; color: white; display: grid; place-items: center; }
+
+.wrap .sec1 .details > .cta > .bookmark svg { width: 20px; height: 20px; }
+
+.wrap .sec1 .details > .cta > .discover { border: 1px solid #ffffff; background-color: transparent; height: 36px; border-radius: 99px; color: #ffffff; padding: 4px 24px; font-size: 12px; margin-left: 16px; text-transform: uppercase; }
+
+.wrap .sec1 .indicator { position: fixed; left: 0; right: 0; top: 0; height: 5px; z-index: 60; background-color: #ecad29; }
+
+.wrap .sec1 .pagination { position: absolute; left: 0px; top: 0px; display: inline-flex; }
+
+.wrap .sec1 .pagination > .arrow { z-index: 60; width: 50px; height: 50px; border-radius: 999px; border: 2px solid #ffffff55; display: grid; place-items: center; }
+
+.wrap .sec1 .pagination > .arrow:nth-child(2) { margin-left: 20px; }
+
+.wrap .sec1 .pagination > .arrow svg { width: 24px; height: 24px; stroke-width: 2; color: #ffffff99; }
+
+.wrap .sec1 .pagination .progress-sub-container { margin-left: 24px; z-index: 60; width: 500px; height: 50px; display: flex; align-items: center; }
+
+.wrap .sec1 .pagination .progress-sub-container .progress-sub-background { width: 500px; height: 3px; background-color: #ffffff33; }
+
+.wrap .sec1 .pagination .progress-sub-container .progress-sub-background .progress-sub-foreground { height: 3px; background-color: #ecad29; }
+
+.wrap .sec1 .pagination .slide-numbers { width: 50px; height: 50px; overflow: hidden; z-index: 60; position: relative; }
+
+.wrap .sec1 .pagination .slide-numbers .item { width: 50px; height: 50px; position: absolute; color: white; top: 0; left: 0; display: grid; place-items: center; font-size: 32px; font-weight: bold; }
+
+.wrap .sec1 .cover { position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; background-color: #fff; z-index: 100; }
+
+.wrap .sec2 { width: 100vw; height: 100vh; position: relative; overflow: hidden; z-index: 6; background-image: linear-gradient(128deg, #ff9a3f, #ff4b40); }
+
+.wrap .sec2 .slide h1 { font-size: 2.65em; transform: scale(0.8); position: relative; opacity: 0; transition: all 600ms ease; transition-delay: 700ms; }
+
+.wrap .sec2 .slide h1.active { transform: scale(1); opacity: 1; }
+
+.wrap .sec2 .slide p { width: 50%; margin: 0.5em auto; font-size: 1.65em; opacity: 0; transition: all 700ms ease; transform: translate3d(0, 0, 0); transition-delay: 700ms; }
+
+.wrap .sec2 .slide p.active { transform: translate3d(0, 0, 0); opacity: 1; }
+
+.wrap .sec3 { background: transparent url(//game.gtimg.cn/images/act/cp/anm20240928/bg2.jpg) top center/100% 100% no-repeat; background-origin: initial; background-clip: initial; background-attachment: initial; width: 100vw; height: 100vh; position: relative; overflow: hidden; z-index: 6; box-sizing: border-box; padding-top: 1.72rem; background-image: linear-gradient(128deg, #fc40ff, #543fff); }
+
+.wrap .sec4 { background: transparent url(//game.gtimg.cn/images/act/cp/anm20240928/bg3.jpg) top center/100% 100% no-repeat; background-origin: initial; background-clip: initial; background-attachment: initial; width: 100vw; height: 100vh; position: relative; overflow: hidden; z-index: 6; box-sizing: border-box; padding-top: 2.05rem; background-image: linear-gradient(128deg, #ff4040, #ff9a3f); }
+
+.wrap .sec5 { background: transparent url(//game.gtimg.cn/images/act/cp/anm20240928/bg2.jpg) top center/100% 100% no-repeat; background-origin: initial; background-clip: initial; background-attachment: initial; width: 100vw; height: 100vh; position: relative; overflow: hidden; z-index: 6; box-sizing: border-box; padding-top: 2.43rem; background-image: linear-gradient(128deg, #40afff, #3f61ff); }
+
+.wrap .sec6 { background: transparent url(//game.gtimg.cn/images/act/cp/anm20240928/bg2.jpg) top center/100% 100% no-repeat; background-origin: initial; background-clip: initial; background-attachment: initial; width: 100vw; height: 100vh; position: relative; overflow: hidden; z-index: 6; box-sizing: border-box; padding-top: 2.25rem; background-image: linear-gradient(128deg, #ff9a3f, #ff4b40); }
+
+.wrap .sec7 { background: transparent url(//game.gtimg.cn/images/act/cp/anm20240928/bg2.jpg) top center/100% 100% no-repeat; background-origin: initial; background-clip: initial; background-attachment: initial; width: 100vw; height: 100vh; position: relative; overflow: hidden; z-index: 6; box-sizing: border-box; padding-top: 3.4rem; background-image: linear-gradient(128deg, #40afff, #3f61ff); /* Layer with position absolute in order to have it over the video */ }
+
+.wrap .sec7 .overlay-video { position: absolute; right: 0; bottom: 0; top: 0; right: 0; width: 100%; height: 100%; background-size: 100% 100%; background-color: black; /* in case the video doesn't fit the whole page*/ background-image: linear-gradient(128deg, #36cc57, #dae723); /* our video */ background-position: center center; background-size: cover; object-fit: cover; /*cover video background */ z-index: -100; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+
+.wrap .sec7 .layer { position: relative; z-index: 1; -webkit-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+
+.wrap .sec7 .layer h1 { font-size: 0.6rem; color: #fff; text-align: center; }
+
+.wrap .sec8 { background: transparent url(//game.gtimg.cn/images/act/cp/anm20240928/bg2.jpg) top center/100% 100% no-repeat; background-origin: initial; background-clip: initial; background-attachment: initial; width: 100vw; height: 100vh; position: relative; overflow: hidden; z-index: 6; background-image: linear-gradient(128deg, #36cc57, #dae723); /* Layer with position absolute in order to have it over the video */ }
+
+.wrap .sec8 .overlay-video { position: absolute; right: 0; bottom: 0; top: 0; right: 0; width: 100%; height: 100%; background-size: 100% 100%; background-color: black; /* in case the video doesn't fit the whole page*/ background-image: linear-gradient(128deg, #36cc57, #dae723); /* our video */ background-position: center center; background-size: cover; object-fit: cover; /*cover video background */ z-index: -100; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+
+.wrap .sec8 .layer { position: relative; z-index: 1; -webkit-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+
+.wrap .sec8 .layer h1 { font-size: 0.6rem; color: #fff; text-align: center; }
+
+.wrap .sec9 { width: 100%; height: auto; position: relative; overflow: hidden; z-index: 6; background-image: linear-gradient(128deg, #1c1d1c, #868686); }
+
+.wrap .sec9 .footer { height: 30vh; padding-top: 5vh; }
+
+.wrap .sec9 .footer h1 { font-size: 0.4rem; line-height: 1.1; text-align: center; }
+
+.wrap .sec9 .footer p { font-size: 0.2rem; line-height: 1.1; text-align: center; }
+
+.wrap .load-background { background-image: url(https://images.unsplash.com/photo-1500042600524-37ecb686c775?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3); background-size: cover; }
+
+.screenshots-html { position: absolute; top: 0; right: auto; bottom: auto; left: -1000px; -webkit-transform: none; -ms-transform: none; transform: none; margin: 0 auto; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-share-bg.png); background-repeat: no-repeat; background-size: cover; width: 649px; height: 1068px; z-index: 99; }
+
+.screenshots-html .screenshots-content { position: relative; margin: 0 auto; width: 100%; height: auto; }
+
+.screenshots-html .screenshots-content .screen-share-title { margin: 220px auto 0; font-size: 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-share-title1.png); background-repeat: no-repeat; background-size: cover; width: 552px; height: 103px; }
+
+.screenshots-html .screenshots-content .screen-share-title .anm-help { color: #d36014; }
+
+.screenshots-html .screenshots-content .screen-info-box { position: relative; margin: 17px auto 0; width: 100%; height: auto; height: 586px; display: flex; -webkit-box-pack: flex-start; -webkit-justify-content: flex-start; -ms-flex-pack: flex-start; justify-content: flex-start; -webkit-box-align: flex-start; -webkit-align-items: flex-start; -ms-flex-align: flex-start; align-items: flex-start; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.screenshots-html .screenshots-content .screen-info-box .lf-info { width: 411px; height: 586px; }
+
+.screenshots-html .screenshots-content .screen-info-box .lf-info img { display: block; width: 411px; height: 586px; background-size: 100% 100%; object-fit: cover; }
+
+.screenshots-html .screenshots-content .screen-info-box .rg-info { position: relative; width: 280px; box-sizing: border-box; padding-top: 76px; margin-left: -58px; }
+
+.screenshots-html .screenshots-content .screen-info-box .rg-info .anm-name { width: 100%; height: 77px; font: normal italic 44px / 77px sy-sbold; color: #d1b673; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; text-shadow: 2px 2px 0 #200e0b, -2px -2px 0 #200e0b, -2px 2px 0 #200e0b, 2px -2px 0 #200e0b; }
+
+.screenshots-html .screenshots-content .screen-info-box .rg-info .anm-skill-name { margin: 17px auto 0; font-size: 0; }
+
+.screenshots-html .screenshots-content .screen-info-box .rg-info .anm-skill-name.skill-name1 { margin: 60px auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-skill1-1.png); background-repeat: no-repeat; background-size: cover; width: 195px; height: 49px; }
+
+.screenshots-html .screenshots-content .screen-info-box .rg-info .anm-skill-name.skill-name2 { margin: 12px auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-skill1-2.png); background-repeat: no-repeat; background-size: cover; width: 195px; height: 49px; }
+
+.screenshots-html .screenshots-content .screen-info-box .rg-info .anm-skill-name.skill-name3 { margin: 12px auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-skill1-3.png); background-repeat: no-repeat; background-size: cover; width: 195px; height: 49px; }
+
+.screenshots-html .screenshots-content .screen-info-box .rg-info .anm-desc { margin: 18px auto 0; width: 174px; font: normal normal 18px / 28px sy-sbold; color: #867855; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog { outline: none; }
+
+.dialog .dia-con { position: relative; }
+
+.dialog .dia-con .dia-box { margin: 0 auto; width: 100%; height: 100%; }
+
+.dialog .dia-close { display: block; position: absolute; top: 0; right: -0.56rem; bottom: auto; left: auto; -webkit-transform: none; -ms-transform: none; transform: none; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-close.png); background-repeat: no-repeat; background-size: 100% 100%; width: 0.49rem; height: 0.53rem; }
+
+.dialog .dia-bg1 { margin: 0 auto; width: 9.96rem; height: 5.6rem; border: 0.02rem solid #957d48; }
+
+.dialog .dia-bg1 .dia-box .vd-cont { display: block; margin: 0 auto; width: 9.92rem; height: 5.56rem; padding-top: 0.02rem; }
+
+.dialog .dialog-share { display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.dialog .dialog-share .share-screenshots-image { display: block; width: 6.49rem; height: 10.68rem; object-fit: cover; }
+
+.dialog .dialog-share .share-btn-box { position: relative; display: flex; -webkit-box-pack: space-between; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; margin: -1.53rem auto 0 1.47rem; width: 4.48rem; height: 0.94rem; }
+
+.dialog .dialog-share .share-btn-box .screen-share { display: block; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-share-btn.png); background-repeat: no-repeat; background-size: 100% 100%; width: 3.53rem; height: 0.94rem; }
+
+.dialog .dialog-share .share-btn-box .screen-share span { display: block; font: normal normal 0.3rem / 0.94rem sy-m; color: #ceba9b; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dialog-share .share-btn-box .screen-download { display: block; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-download.png); background-repeat: no-repeat; background-size: 100% 100%; width: 0.35rem; height: 0.42rem; }
+
+.dialog .dia-bg2 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg1.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 5.88rem; box-sizing: border-box; padding: 0.37rem 0.7rem; }
+
+.dialog .dia-bg2 .dia-title1 { margin: 0 auto; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-title1.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.75rem; height: 0.96rem; }
+
+.dialog .dia-bg2 .dia-sub-tit1 { margin: 0.3rem auto 0.18rem; font: normal italic 0.23rem / 1.1 sy-sbold; color: #a8a075; text-align: center; letter-spacing: 0.02rem; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg2 .dia-role-container { position: relative; margin: 0 auto; width: 6.56rem; height: auto; }
+
+.dialog .dia-bg2 .dia-role-container .dia-role-inner { position: relative; margin: 0 auto; width: 100%; height: auto; }
+
+.dialog .dia-bg2 .dia-role-container .dia-role-list { position: relative; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-bg1.png); background-repeat: no-repeat; background-size: 100% 100%; width: 6.56rem; height: 1.95rem; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.dialog .dia-bg2 .dia-role-container .dia-role-list .dia-role-item { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-it-bg.png); background-repeat: no-repeat; background-size: 100% 100%; width: 0.94rem; height: 0.94rem; box-sizing: border-box; padding: 0.03rem; }
+
+.dialog .dia-bg2 .dia-role-container .dia-role-list .dia-role-item:not(:nth-child(4n)) { margin-right: 0.26rem; }
+
+.dialog .dia-bg2 .dia-role-container .dia-role-list .dia-role-item.active { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-it-bg-on.png); background-repeat: no-repeat; background-size: 100% 100%; width: 0.94rem; height: 0.94rem; }
+
+.dialog .dia-bg2 .dia-role-container .dia-role-list .dia-role-item img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+.dialog .dia-bg2 .dia-role-container .submit-role-btn { display: block; margin: 0.4rem auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-see-again.png); background-repeat: no-repeat; background-size: 100% 100%; width: 3.04rem; height: 0.8rem; }
+
+.dialog .dia-bg2 .dia-role-container .submit-role-btn span { display: block; font: normal normal 0.26rem / 0.68rem sy-m; color: #a0986d; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg3 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg2.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 5.88rem; box-sizing: border-box; padding: 0.52rem 0.86rem 0.2rem; }
+
+.dialog .dia-bg3 .dia-title2 { margin: 0 auto; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-title2.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.96rem; height: 0.5rem; }
+
+.dialog .dia-bg3 .bind-form { margin: 0.2rem auto 0; position: relative; width: 6.26rem; height: auto; }
+
+.dialog .dia-bg3 .bind-form .phone-num { font: normal normal 0.2rem / 0.46rem sy-sbold; color: rgba(168, 160, 117, 0.5); text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; width: 6.26rem; height: 0.46rem; box-sizing: border-box; padding: 0rem 0.32rem; outline: none; border: none; background-color: #130d09; }
+
+.dialog .dia-bg3 .bind-form .phone-num::placeholder { color: rgba(168, 160, 117, 0.5); font-size: 0.2rem; }
+
+.dialog .dia-bg3 .bind-form .phone-num::-webkit-input-placeholder { color: rgba(168, 160, 117, 0.5); font-size: 0.2rem; }
+
+.dialog .dia-bg3 .bind-form .phone-num:-ms-input-placeholder { color: rgba(168, 160, 117, 0.5); font-size: 0.2rem; }
+
+.dialog .dia-bg3 .bind-form .phone-num::placeholder { color: rgba(168, 160, 117, 0.5); font-size: 0.2rem; }
+
+.dialog .dia-bg3 .bind-form .verification-box { margin: 0.09rem auto 0; width: 100%; height: 0.46rem; display: flex; -webkit-box-pack: space-between; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.dialog .dia-bg3 .bind-form .verification-box .phone-code-num { font: normal normal 0.2rem / 0.46rem sy-sbold; color: rgba(168, 160, 117, 0.5); text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; width: 3.8rem; height: 0.46rem; box-sizing: border-box; padding: 0rem 0.32rem; outline: none; border: none; background-color: #130d09; }
+
+.dialog .dia-bg3 .bind-form .verification-box .phone-code-num::placeholder { color: rgba(168, 160, 117, 0.5); font-size: 0.2rem; }
+
+.dialog .dia-bg3 .bind-form .verification-box .phone-code-num::-webkit-input-placeholder { color: rgba(168, 160, 117, 0.5); font-size: 0.2rem; }
+
+.dialog .dia-bg3 .bind-form .verification-box .phone-code-num:-ms-input-placeholder { color: rgba(168, 160, 117, 0.5); font-size: 0.2rem; }
+
+.dialog .dia-bg3 .bind-form .verification-box .phone-code-num::placeholder { color: rgba(168, 160, 117, 0.5); font-size: 0.2rem; }
+
+.dialog .dia-bg3 .bind-form .verification-box .get-code { display: block; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-btn-getcode.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.86rem; height: 0.44rem; }
+
+.dialog .dia-bg3 .bind-form .verification-box .get-code span { display: block; font: normal normal 0.16rem / 0.44rem sy-m; color: #c9bb72; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg3 .bind-form .verification-box .get-code.on { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-btn-getcode-on.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.86rem; height: 0.44rem; }
+
+.dialog .dia-bg3 .bind-form .verification-box .get-code.on span { color: #fff; }
+
+.dialog .dia-bg3 .bind-form .bind-user-agreement { margin: 0.22rem auto 0; width: 100%; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.dialog .dia-bg3 .bind-form .bind-user-agreement .user-agreement-checkbox { width: 0.2rem; height: 0.2rem; border: 1px solid #6d644b; padding: 0; margin: 0; }
+
+.dialog .dia-bg3 .bind-form .bind-user-agreement label { display: block; margin-left: 0.16rem; font: normal normal 0.19rem / 1.1 sy-sbold; color: #a8a075; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg3 .bind-form .user-agreement-desc { width: 100%; margin: 0.24rem auto 0; }
+
+.dialog .dia-bg3 .bind-form .user-agreement-desc .user-agreement-text { font: normal normal 0.18rem / 1.2 sy-sbold; color: rgba(168, 160, 117, 0.5); text-align: left; letter-spacing: -0.02rem; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg3 .bind-form .user-agreement-desc .user-agreement-text:not(:last-child) { margin-bottom: 0.1rem; }
+
+.dialog .dia-bg3 .submit-phone-num { display: block; margin: 0.24rem auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-see-again.png); background-repeat: no-repeat; background-size: 100% 100%; width: 3.04rem; height: 0.79rem; }
+
+.dialog .dia-bg3 .submit-phone-num span { display: block; font: normal normal 0.26rem / 0.68rem sy-sbold; color: #a0986d; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg4 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg2.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 5.88rem; box-sizing: border-box; padding: 0.66rem 0.7rem; }
+
+.dialog .dia-bg4 .dia-title3 { margin: 0 auto; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-title5.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.78rem; height: 0.5rem; }
+
+.dialog .dia-bg4 .rules-inner { margin: 0.5rem auto 0; width: 100%; height: 3.6rem; position: relative; }
+
+.dialog .dia-bg4 .rules-list { width: 100%; height: 3.6rem; position: relative; }
+
+.dialog .dia-bg4 .rules-list .rules-items { width: 100%; margin-bottom: 0.22rem; }
+
+.dialog .dia-bg4 .rules-list .sub-title-text { font: normal normal 0.24rem / 1.1 sy-sbold; color: #a8a075; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg4 .rules-list .tips-text { margin-top: 0.1rem; font: normal normal 0.2rem / 0.24rem sy-sbold; color: rgba(168, 160, 117, 0.5); text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg4 .rules-list .r-icon { display: inline-block; width: 0.08rem; height: 0.08rem; border-radius: 50%; background-color: #a8a075; margin-right: 0.06rem; vertical-align: middle; }
+
+.dialog .dia-bg12 .dia-title7 { margin: 0 auto; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-title7.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.78rem; height: 0.5rem; }
+
+.dialog .dia-bg12 .prop-gl-list { margin: 0.2rem auto 0; width: 100%; height: auto; }
+
+.dialog .dia-bg12 .prop-gl-item { width: 100%; height: 0.6rem; display: flex; -webkit-box-pack: space-between; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; font: normal normal 0.22rem / 0.6rem sy-sbold; color: #a0986d; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg12 .prop-gl-title { border: 1px solid #6d644b; width: 33%; height: 0.6rem; font: normal normal 0.22rem / 0.6rem sy-sbold; color: #a0986d; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg13 .dia-title8 { margin: 0 auto; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-title8.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.04rem; height: 0.5rem; }
+
+.dialog .dia-bg13 .prop-gl-list { margin: 0.2rem auto 0; width: 100%; height: auto; }
+
+.dialog .dia-bg13 .prop-gl-item { width: 100%; height: 0.6rem; display: flex; -webkit-box-pack: space-between; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; font: normal normal 0.22rem / 0.6rem sy-sbold; color: #a0986d; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg13 .prop-gl-title { border: 1px solid #6d644b; width: 33%; height: 0.6rem; font: normal normal 0.22rem / 0.6rem sy-sbold; color: #a0986d; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg5 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg3.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.92rem; height: 9.05rem; box-sizing: border-box; padding: 0.66rem 0; }
+
+.dialog .dia-bg5 .dia-title4 { margin: 0 auto; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-title3.png); background-repeat: no-repeat; background-size: 100% 100%; width: 5.35rem; height: 0.95rem; }
+
+.dialog .dia-bg5 .role-sure-info { margin: -0.2rem auto 0; width: 100%; height: 5.86rem; display: flex; -webkit-box-pack: flex-start; -webkit-justify-content: flex-start; -ms-flex-pack: flex-start; justify-content: flex-start; -webkit-box-align: flex-start; -webkit-align-items: flex-start; -ms-flex-align: flex-start; align-items: flex-start; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.dialog .dia-bg5 .role-sure-info .lf-info { position: relative; margin-left: 0.56rem; z-index: 4; width: 4.11rem; height: 5.86rem; }
+
+.dialog .dia-bg5 .role-sure-info .lf-info img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info { margin-top: 0.85rem; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-rolesure-rg-info-bg.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.97rem; height: 4.8rem; position: relative; box-sizing: border-box; padding-top: 0.24rem; margin-left: -0.58rem; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .anm-name { width: 100%; height: 0.77rem; font: normal italic 0.44rem / 0.77rem sy-sbold; color: #d1b673; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; text-shadow: 0.02rem 0.02rem 0 black, -0.02rem -0.02rem 0 black, 0.02rem -0.02rem 0 black, -0.02rem 0.02rem 0 black; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box { position: relative; margin: 0 auto; width: 100%; height: 0.49rem; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box.sk-box1:hover .skill-name1-desc { display: block; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box.sk-box2:hover .skill-name2-desc { display: block; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box.sk-box3:hover .skill-name3-desc { display: block; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box .skill-name1 { margin: 0.6rem auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-skill1-1.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.95rem; height: 0.49rem; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box .skill-name1:hover .skill-name1-desc { display: block; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box .skill-name2 { margin: 0.12rem auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-skill1-2.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.95rem; height: 0.49rem; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box .skill-name3 { margin: 0.12rem auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-role-skill1-3.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.95rem; height: 0.49rem; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box .skill-name3:hover .skill-name3-desc { display: block; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box .skill-name1-desc { display: none; position: absolute; top: -0.7rem; right: -1rem; bottom: auto; left: auto; -webkit-transform: none; -ms-transform: none; transform: none; font: normal normal 0.16rem / 0.2rem sy-r; color: #a8a075; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; text-shadow: 0.02rem 0.02rem 0 #200e0b, -0.02rem -0.02rem 0 #200e0b, -0.02rem 0.02rem 0 #200e0b, 0.02rem -0.02rem 0 #200e0b; box-sizing: border-box; padding: 0.14rem 0.14rem; background-color: rgba(0, 0, 0, 0.6); max-width: 2.02rem; z-index: 3; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box .skill-name2-desc { display: none; position: absolute; top: -0.7rem; right: -1rem; bottom: auto; left: auto; -webkit-transform: none; -ms-transform: none; transform: none; font: normal normal 0.16rem / 0.2rem sy-r; color: #a8a075; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; text-shadow: 0.02rem 0.02rem 0 #200e0b, -0.02rem -0.02rem 0 #200e0b, -0.02rem 0.02rem 0 #200e0b, 0.02rem -0.02rem 0 #200e0b; box-sizing: border-box; padding: 0.14rem 0.14rem; background-color: rgba(0, 0, 0, 0.6); max-width: 2.02rem; z-index: 3; }
+
+.dialog .dia-bg5 .role-sure-info .rg-info .skill-box .skill-name3-desc { display: none; position: absolute; top: -0.7rem; right: -1rem; bottom: auto; left: auto; -webkit-transform: none; -ms-transform: none; transform: none; font: normal normal 0.16rem / 0.2rem sy-r; color: #a8a075; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; text-shadow: 0.02rem 0.02rem 0 #200e0b, -0.02rem -0.02rem 0 #200e0b, -0.02rem 0.02rem 0 #200e0b, 0.02rem -0.02rem 0 #200e0b; box-sizing: border-box; padding: 0.14rem 0.14rem; background-color: rgba(0, 0, 0, 0.6); max-width: 2.02rem; z-index: 3; }
+
+.dialog .dia-bg5 .sure-btn-box { position: relative; display: flex; -webkit-box-pack: space-between; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; margin: 0.16rem auto 0; width: 6.23rem; height: 0.81rem; }
+
+.dialog .dia-bg5 .sure-btn-box .see-again { display: block; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-share-btn.png); background-repeat: no-repeat; background-size: 100% 100%; width: 3.04rem; height: 0.8rem; }
+
+.dialog .dia-bg5 .sure-btn-box .see-again span { display: block; font: normal normal 0.26rem / 0.8rem sy-m; color: #a0986d; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg5 .sure-btn-box .sure-commit { display: block; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-sure-commit.png); background-repeat: no-repeat; background-size: 100% 100%; width: 3.04rem; height: 0.8rem; }
+
+.dialog .dia-bg5 .sure-btn-box .sure-commit span { display: block; font: normal normal 0.26rem / 0.8rem sy-m; color: #bca27f; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg6 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg4.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 4.83rem; box-sizing: border-box; padding: 1.26rem 0; }
+
+.dialog .dia-bg6 .succ-text { width: 6.2rem; font: normal normal 0.28rem / 0.3rem sy-sbold; color: #a8a075; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; margin: 0.14rem auto 0; }
+
+.dialog .dia-bg6 .succ-text .phone-num { color: #d36014; }
+
+.dialog .dia-bg6 .succ-btn-box { margin: 0.48rem auto 0; position: relative; display: flex; -webkit-box-pack: space-between; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; width: 5.5rem; height: 0.81rem; }
+
+.dialog .dia-bg6 .succ-btn-box .sure-btn { display: block; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-share-btn.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.55rem; height: 0.8rem; }
+
+.dialog .dia-bg6 .succ-btn-box .sure-btn span { display: block; padding-left: 0.14rem; font: normal normal 0.26rem / 0.8rem sy-m; color: #c9bb72; text-align: center; letter-spacing: 0.2rem; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg6 .succ-btn-box .unbind-btn { display: block; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-sure-commit.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.55rem; height: 0.8rem; }
+
+.dialog .dia-bg6 .succ-btn-box .unbind-btn span { display: block; padding-left: 0.14rem; font: normal normal 0.26rem / 0.8rem sy-m; color: #c9a172; text-align: center; letter-spacing: 0.2rem; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg7 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg4.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 4.83rem; box-sizing: border-box; padding: 1rem 0; }
+
+.dialog .dia-bg7 .dia-title5 { margin: 0 auto; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-title4.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.69rem; height: 0.5rem; }
+
+.dialog .dia-bg7 .un-phone-num { display: block; margin: 0.5rem auto 0; font: normal normal 0.26rem / 0.66rem sy-sbold; color: #b7af83; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; width: 5.22rem; height: 0.64rem; box-sizing: border-box; padding: 0rem 0.48rem; outline: none; border: none; background-color: #130d09; }
+
+.dialog .dia-bg7 .un-phone-num::placeholder { color: #b7af83; font-size: 0.26rem; }
+
+.dialog .dia-bg7 .un-phone-num::-webkit-input-placeholder { color: #b7af83; font-size: 0.26rem; }
+
+.dialog .dia-bg7 .un-phone-num:-ms-input-placeholder { color: #b7af83; font-size: 0.26rem; }
+
+.dialog .dia-bg7 .un-phone-num::placeholder { color: #b7af83; font-size: 0.26rem; }
+
+.dialog .dia-bg7 .unbind-btn-now { display: block; margin: 0.46rem auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-share-btn.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.55rem; height: 0.8rem; }
+
+.dialog .dia-bg7 .unbind-btn-now span { display: block; font: normal normal 0.26rem / 0.8rem sy-m; color: #c9bb72; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg8 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg4.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 4.83rem; box-sizing: border-box; padding: 1.6rem 0 0 0; }
+
+.dialog .dia-bg8 .binded-text { margin: 0 auto 0; font: normal normal 0.28rem / 0.66rem sy-sbold; color: #b7af83; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg8 .bind-btn-phone-num { display: block; margin: 0.76rem auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-share-btn.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.55rem; height: 0.8rem; }
+
+.dialog .dia-bg8 .bind-btn-phone-num span { display: block; font: normal normal 0.26rem / 0.8rem sy-m; color: #c9bb72; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg9 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg4.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 4.83rem; box-sizing: border-box; padding: 1.8rem 0 0 0; }
+
+.dialog .dia-bg9 .appointment-succ-text { margin: 0.24rem auto 0; width: 100%; padding: 0 0.2rem; box-sizing: border-box; font: normal normal 0.28rem / 0.3rem sy-sbold; color: #a8a075; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg10 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg4.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 4.83rem; box-sizing: border-box; padding: 0.9rem 0 0 0; }
+
+.dialog .dia-bg10 .dia-box { width: 100%; height: 3rem; box-sizing: border-box; padding: 0 0.2rem; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.dialog .dia-bg10 .common-text { font: normal normal 0.28rem / 0.3rem sy-sbold; color: #a8a075; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg11 { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-bg4.png); background-repeat: no-repeat; background-size: 100% 100%; width: 7.98rem; height: 4.83rem; box-sizing: border-box; padding: 0.6rem 0 0 0; }
+
+.dialog .dia-bg11 .dia-title6 { margin: 0 auto 0; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/dia-title6.png); background-repeat: no-repeat; background-size: 100% 100%; width: 2.76rem; height: 0.95rem; }
+
+.dialog .dia-bg11 .complete-task-inner { margin: 0.3rem auto 0; width: 100%; box-sizing: border-box; padding: 0rem 0.2rem; }
+
+.dialog .dia-bg11 .complete-task-list { margin: 0 auto; position: relative; width: 6.08rem; height: auto; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items { background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/sec5-task-item-bg.png); background-repeat: no-repeat; background-size: 100% 100%; width: 6.08rem; height: 0.95rem; display: flex; -webkit-box-pack: space-between; -webkit-justify-content: space-between; -ms-flex-pack: space-between; justify-content: space-between; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; box-sizing: border-box; padding: 0 0.3rem 0 0.28rem; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items:not(:first-child) { margin-top: 0.07rem; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items.active .com-task-get-btn { filter: grayscale(1); }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items .com-task-item-left { width: 3.34rem; height: auto; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items .com-task-item-left .com-task-item-title { font: normal normal 0.2rem / 1.1 sy-m; color: #c9bb72; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items .com-task-item-left .com-task-item-desc { font: normal normal 0.18rem / 1.1 sy-m; color: #a0986d; text-align: left; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; margin-top: 0.08rem; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items .com-task-item-left .com-task-item-desc span { color: #c96f32; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items .task-num-text { width: 0.47rem; height: 0.32rem; background-color: #050505; font: normal normal 0.2rem / 0.32rem sy-m; color: #c9bb72; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items .com-task-get-btn { display: block; background-image: url(//game.gtimg.cn/images/act/cp/anm20240928/sec5-task-get-btn.png); background-repeat: no-repeat; background-size: 100% 100%; width: 1.67rem; height: 0.59rem; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-flex-wrap: nowrap; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch; }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items .com-task-get-btn.active { filter: grayscale(1); }
+
+.dialog .dia-bg11 .complete-task-list .complete-task-items .com-task-get-btn span { display: block; font: normal normal 0.2rem / 1.1 sy-m; color: #a0986d; text-align: center; letter-spacing: normal; -webkit-text-decoration: none; -moz-text-decoration: none; text-decoration: none; }

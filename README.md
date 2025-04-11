@@ -26,3 +26,15 @@ website temp for development
 - [fe-unibest-temp](https://github.com/willasas/template-for-dev/tree/main/fe-unibest-temp)是一个集成了多种工具和技术的 `uniapp` 开发模板，由 `uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI + VSCode` 构建，模板具有代码提示、自动格式化、统一配置、代码片段等功能，并内置了许多常用的基本组件和基本功能，让你编写 `uniapp` 拥有 `best` 体验。
 - 适用于 `uniapp` 开发。
 - 编写一次代码，多端适配。
+
+## genshin-impact-map
+
+- [genshin-impact-map](https://github.com/willasas/template-for-dev/tree/main/genshin-impact-map)是一个原神地图实例。
+
+## genshin-impact-moon
+
+- [genshin-impact-moon](https://github.com/willasas/template-for-dev/tree/main/genshin-impact-moon)是一个原神 25年4月新预告-预言已显，新月将至的three.js特性实例。
+
+## Illustrated-book-of-glory-of-kings
+
+- [Illustrated-book-of-glory-of-kings](https://github.com/willasas/template-for-dev/tree/main/Illustrated-book-of-glory-of-kings)是一个使用 `Vue3.4 + Typescript + Vite4 + Pinia + Vue-Router + Less` 构建的王者荣耀图鉴网站。

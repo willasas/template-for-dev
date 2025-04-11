@@ -19,3 +19,10 @@ website temp for development
 
 - [fe-native-temp](https://github.com/willasas/template-for-dev/tree/main/fe-native-temp)是使用原生`HTML`+ `JS` + `CSS` 构建的代码包。
 - 适用于小型单页或多页运用。
+
+
+## fe-unibest-temp
+
+- [fe-unibest-temp](https://github.com/willasas/template-for-dev/tree/main/fe-unibest-temp)是一个集成了多种工具和技术的 `uniapp` 开发模板，由 `uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI + VSCode` 构建，模板具有代码提示、自动格式化、统一配置、代码片段等功能，并内置了许多常用的基本组件和基本功能，让你编写 `uniapp` 拥有 `best` 体验。
+- 适用于 `uniapp` 开发。
+- 编写一次代码，多端适配。
